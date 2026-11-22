@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { PORTFOLIO_DATA } from '@/data/portfolio';
 import { KepButton } from './ui/KepButton';
 import { Terminal, Send, Menu, X, ArrowUpRight } from 'lucide-react';
@@ -9,13 +10,14 @@ import { GithubIcon } from './ui/Icons';
 
 export const Navbar: React.FC = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const pathname = usePathname();
 
   const navLinks = [
-    { href: '#home', num: '01', label: 'Bosh' },
-    { href: '#about', num: '02', label: 'Tajriba' },
-    { href: '#projects', num: '03', label: 'Loyihalar' },
-    { href: '#skills', num: '04', label: 'Stek' },
-    { href: '#contact', num: '05', label: 'Aloqa' },
+    { href: '/', num: '01', label: 'Asosiy' },
+    { href: '/about', num: '02', label: 'Tajriba' },
+    { href: '/projects', num: '03', label: 'Loyihalar' },
+    { href: '/blog', num: '04', label: 'Blog' },
+    { href: '/contact', num: '05', label: 'Aloqa' },
   ];
 
   return (
@@ -24,7 +26,7 @@ export const Navbar: React.FC = () => {
         {/* Brand / Monogram */}
         <div className="flex items-center gap-4">
           <Link
-            href="#home"
+            href="/"
             className="flex items-center gap-2 text-sm sm:text-base font-mono font-bold tracking-wider text-[#edf1f4] hover:text-[#93d7e2] transition-colors"
           >
             <span className="inline-flex items-center justify-center w-7 h-7 bg-[#131821] border border-[#93d7e2]/40 text-[#93d7e2]">
@@ -36,22 +38,29 @@ export const Navbar: React.FC = () => {
           {/* System Status Pill */}
           <div className="hidden lg:flex items-center gap-2 px-2.5 py-1 text-[11px] font-mono border border-white/[0.08] bg-[#0e121a] text-[#9caeb8]">
             <span className="w-1.5 h-1.5 rounded-full bg-[#28a66a] animate-pulse" />
-            <span>ONLINE // AVAILABLE</span>
+            <span>CORE: ONLINE // AVAILABLE</span>
           </div>
         </div>
 
         {/* Desktop Nav Links */}
         <nav className="hidden md:flex items-center gap-1 font-mono text-xs">
-          {navLinks.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className="px-3 py-1.5 text-[#9caeb8] hover:text-[#edf1f4] hover:bg-white/[0.04] border border-transparent hover:border-white/10 transition-all duration-150"
-            >
-              <span className="text-[#93d7e2]/60 mr-1.5">{item.num}</span>
-              {item.label}
-            </Link>
-          ))}
+          {navLinks.map((item) => {
+            const isActive = pathname === item.href;
+            return (
+              <Link
+                key={item.href}
+                href={item.href}
+                className={`px-3 py-1.5 border transition-all duration-150 ${
+                  isActive
+                    ? 'border-[#93d7e2]/40 bg-[#93d7e2]/10 text-[#93d7e2]'
+                    : 'text-[#9caeb8] hover:text-[#edf1f4] hover:bg-white/[0.04] border-transparent hover:border-white/10'
+                }`}
+              >
+                <span className="text-[#93d7e2]/60 mr-1.5">{item.num}</span>
+                {item.label}
+              </Link>
+            );
+          })}
         </nav>
 
         {/* Action Buttons */}
