@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import Image from 'next/image';
 import { PORTFOLIO_DATA, Project } from '@/data/portfolio';
 import { PortfolioCard } from './ui/KepCard';
 import { PortfolioButton } from './ui/KepButton';
@@ -98,6 +99,19 @@ export const Projects: React.FC = () => {
                     </span>
                   )}
                 </div>
+
+                {/* Project Screenshot if available */}
+                {project.image && (
+                  <div className="mb-4 overflow-hidden border border-[var(--portfolio-border)] aspect-video relative bg-[var(--portfolio-bg-elevation-1)]">
+                    <Image
+                      src={project.image}
+                      alt={project.title}
+                      width={600}
+                      height={338}
+                      className="w-full h-full object-cover grayscale contrast-110 hover:grayscale-0 transition-all duration-300"
+                    />
+                  </div>
+                )}
 
                 {/* Title */}
                 <h3 className="text-lg font-bold font-mono text-[var(--portfolio-text-primary)] mb-2 leading-snug">
@@ -212,6 +226,18 @@ export const Projects: React.FC = () => {
             <h3 className="text-xl font-bold font-mono text-[var(--portfolio-text-primary)] mb-2">
               {selectedProject.title}
             </h3>
+
+            {selectedProject.image && (
+              <div className="mb-4 overflow-hidden border border-[var(--portfolio-border-bright)] aspect-video relative bg-[var(--portfolio-bg-elevation-1)]">
+                <Image
+                  src={selectedProject.image}
+                  alt={selectedProject.title}
+                  width={800}
+                  height={450}
+                  className="w-full h-full object-cover grayscale contrast-110"
+                />
+              </div>
+            )}
 
             <p className="font-mono text-sm text-[var(--portfolio-text-secondary)] leading-relaxed mb-4">
               {selectedProject.fullDetails}

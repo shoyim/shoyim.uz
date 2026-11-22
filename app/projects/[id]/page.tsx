@@ -2,6 +2,7 @@ import React from 'react';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
 import { Breadcrumbs } from '@/components/Breadcrumbs';
@@ -136,6 +137,28 @@ export default async function SingleProjectPage({ params }: ProjectPageProps) {
               )}
             </div>
           </PortfolioCard>
+
+          {/* Project Screenshot / Visual Showcase */}
+          {project.image && (
+            <div className="mb-10 border border-[var(--portfolio-border)] bg-[var(--portfolio-bg-paper)] overflow-hidden">
+              <div className="flex items-center justify-between px-4 py-2 border-b border-[var(--portfolio-border)] bg-[var(--portfolio-bg-elevation-1)] font-mono text-xs text-[var(--portfolio-text-secondary)]">
+                <div className="flex items-center gap-2">
+                  <span className="w-2 h-2 rounded-full bg-[var(--portfolio-primary)] inline-block" />
+                  <span>LOYIHA_SKRINSHOTI // {project.id}.PNG</span>
+                </div>
+                <span>{project.liveUrl || 'LOCAL_ARCHIVE'}</span>
+              </div>
+              <div className="aspect-video w-full overflow-hidden bg-[var(--portfolio-bg-elevation-1)]">
+                <Image
+                  src={project.image}
+                  alt={project.title}
+                  width={1200}
+                  height={675}
+                  className="w-full h-full object-cover grayscale contrast-110 hover:grayscale-0 transition-all duration-500"
+                />
+              </div>
+            </div>
+          )}
 
           {/* Details Breakdown */}
           <div className="grid grid-cols-1 md:grid-cols-12 gap-8 mb-14">

@@ -2,6 +2,7 @@
 
 import React, { useState, useMemo } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
 import { Breadcrumbs } from '@/components/Breadcrumbs';
@@ -151,6 +152,19 @@ export default function ProjectsPage() {
                         </span>
                       )}
                     </div>
+
+                    {/* Project Screenshot if available */}
+                    {project.image && (
+                      <div className="mb-4 overflow-hidden border border-[var(--portfolio-border)] aspect-video relative bg-[var(--portfolio-bg-elevation-1)]">
+                        <Image
+                          src={project.image}
+                          alt={project.title}
+                          width={600}
+                          height={338}
+                          className="w-full h-full object-cover grayscale contrast-110 hover:grayscale-0 transition-all duration-300"
+                        />
+                      </div>
+                    )}
 
                     {/* Title with link */}
                     <Link href={`/projects/${project.id}`}>

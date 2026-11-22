@@ -70,11 +70,10 @@ export const Navbar: React.FC = () => {
               <Link
                 key={item.href}
                 href={item.href}
-                className={`px-3 py-1.5 border transition-all duration-150 ${
-                  isActive
-                    ? 'border-[var(--portfolio-border-bright)] bg-[var(--portfolio-primary-dim)] text-[var(--portfolio-primary)] font-bold'
-                    : 'text-[var(--portfolio-text-secondary)] hover:text-[var(--portfolio-text-primary)] hover:bg-[var(--portfolio-bg-elevation-1)] border-transparent hover:border-[var(--portfolio-border)]'
-                }`}
+                className={`px-3 py-1.5 border transition-all duration-150 ${isActive
+                  ? 'border-[var(--portfolio-border-bright)] bg-[var(--portfolio-primary-dim)] text-[var(--portfolio-primary)] font-bold'
+                  : 'text-[var(--portfolio-text-secondary)] hover:text-[var(--portfolio-text-primary)] hover:bg-[var(--portfolio-bg-elevation-1)] border-transparent hover:border-[var(--portfolio-border)]'
+                  }`}
               >
                 <span className="text-[var(--portfolio-primary)] opacity-70 mr-1.5">{item.num}</span>
                 {item.label}
