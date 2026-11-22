@@ -49,7 +49,7 @@ export default function ProjectsPage() {
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
             <div>
               <div className="font-mono text-xs text-[var(--portfolio-primary)] tracking-wider uppercase mb-2">
-                // PORTFOLIO & REPOZITORIYLAR
+                {'// PORTFOLIO & REPOZITORIYLAR'}
               </div>
               <h1 className="text-3xl sm:text-5xl font-bold font-mono text-[var(--portfolio-text-primary)] uppercase tracking-tight">
                 Loyihalar Katalogi

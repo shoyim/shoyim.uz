@@ -11,7 +11,7 @@ export const About: React.FC = () => {
         {/* Section Header */}
         <div className="mb-14">
           <div className="font-mono text-xs text-[var(--portfolio-primary)] tracking-wider uppercase mb-2">
-            // 02. KASBIY YO‘L VA TAJRIBA
+            {'// 02. KASBIY YO‘L VA TAJRIBA'}
           </div>
           <h2 className="text-3xl sm:text-4xl font-bold font-mono text-[var(--portfolio-text-primary)] uppercase tracking-tight">
             Tajriba va Arxitektura Yondashuvi
@@ -79,7 +79,7 @@ export const About: React.FC = () => {
           <div className="lg:col-span-4 space-y-6">
             <PortfolioCard hasCorners accent="gold" className="p-6 bg-[var(--portfolio-bg-paper)]">
               <div className="font-mono text-xs text-[var(--portfolio-accent-gold)] uppercase mb-2">
-                // MUHANDISLIK FALSAFASI
+                {'// MUHANDISLIK FALSAFASI'}
               </div>
               <h3 className="text-lg font-bold font-mono text-[var(--portfolio-text-primary)] mb-3">
                 Toza Kod, Izolyatsiya va Masshtablanuvchanlik
@@ -94,7 +94,7 @@ export const About: React.FC = () => {
 
             <PortfolioCard hasCorners accent="cyan" className="p-6">
               <div className="font-mono text-xs text-[var(--portfolio-primary)] uppercase mb-2">
-                // MUSOBAQA DASTURLASH
+                {'// MUSOBAQA DASTURLASH'}
               </div>
               <div className="text-sm font-mono text-[var(--portfolio-text-primary)] mb-2 font-bold">
                 Algoritmik Tizimlar & Hakamlik

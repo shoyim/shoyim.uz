@@ -157,7 +157,7 @@ export default async function SingleBlogPostPage({ params }: BlogPostPageProps) 
                       }`}
                     >
                       <div className="font-bold uppercase mb-1">
-                        // {sec.callout.type.toUpperCase()}:
+                        {'// ' + sec.callout.type.toUpperCase() + ':'}
                       </div>
                       <div className="text-[var(--portfolio-text-primary)]">{sec.callout.text}</div>
                     </div>
@@ -222,7 +222,7 @@ export default async function SingleBlogPostPage({ params }: BlogPostPageProps) 
           {relatedPosts.length > 0 && (
             <div className="pt-8 border-t border-[var(--portfolio-border)]">
               <div className="font-mono text-xs text-[var(--portfolio-primary)] uppercase mb-6">
-                // BOSHQA TAVSIYA ETILADIGAN MAQOLALAR:
+                {'// BOSHQA TAVSIYA ETILADIGAN MAQOLALAR:'}
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {relatedPosts.map((rel) => (

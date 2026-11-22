@@ -155,7 +155,7 @@ export default async function SingleProjectPage({ params }: ProjectPageProps) {
                 </div>
 
                 <div className="mt-8 pt-6 border-t border-[var(--portfolio-border)] space-y-3 font-mono text-xs">
-                  <div className="text-[var(--portfolio-text-primary)] font-bold uppercase">// ASOSIY YUTUQLAR:</div>
+                  <div className="text-[var(--portfolio-text-primary)] font-bold uppercase">{'// ASOSIY YUTUQLAR:'}</div>
                   <div className="flex items-start gap-2 text-[var(--portfolio-text-secondary)]">
                     <CheckCircle2 className="w-4 h-4 text-[var(--portfolio-accent-green)] shrink-0 mt-0.5" />
                     <span>Xatoliklarni kamaytirish va maʼlumotlar izolyatsiyasini to‘liq taʼminlash</span>
@@ -226,7 +226,7 @@ export default async function SingleProjectPage({ params }: ProjectPageProps) {
           {relatedProjects.length > 0 && (
             <div className="pt-8 border-t border-[var(--portfolio-border)]">
               <div className="font-mono text-xs text-[var(--portfolio-primary)] uppercase mb-4">
-                // O‘XSHASH TOIFADAGI LOYIHALAR:
+                {'// O‘XSHASH TOIFADAGI LOYIHALAR:'}
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {relatedProjects.map((rel) => (

@@ -24,7 +24,7 @@ export const Skills: React.FC = () => {
         {/* Section Header */}
         <div className="mb-14">
           <div className="font-mono text-xs text-[var(--portfolio-primary)] tracking-wider uppercase mb-2">
-            // 04. TEXNOLOGIYALAR VA MATRITSA
+            {'// 04. TEXNOLOGIYALAR VA MATRITSA'}
           </div>
           <h2 className="text-3xl sm:text-4xl font-bold font-mono text-[var(--portfolio-text-primary)] uppercase tracking-tight">
             Texnik Stek & Ko‘nikmalar
@@ -77,7 +77,7 @@ export const Skills: React.FC = () => {
         {/* Auxiliary Tools Pills */}
         <div className="mt-12 p-6 border border-[var(--portfolio-border)] bg-[var(--portfolio-bg-paper)]">
           <div className="font-mono text-xs text-[var(--portfolio-text-secondary)] uppercase mb-3">
-            // QO‘SHIMCHA ASBOB VA PROTOKOLLAR:
+            {'// QO‘SHIMCHA ASBOB VA PROTOKOLLAR:'}
           </div>
           <div className="flex flex-wrap gap-2">
             {[

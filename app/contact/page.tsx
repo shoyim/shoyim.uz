@@ -45,7 +45,7 @@ export default function ContactPage() {
           {/* Page Header */}
           <div className="mb-12">
             <div className="font-mono text-xs text-[var(--portfolio-primary)] tracking-wider uppercase mb-2">
-              // ALOQA VA HAMKORLIK
+              {'// ALOQA VA HAMKORLIK'}
             </div>
             <h1 className="text-3xl sm:text-5xl font-bold font-mono text-[var(--portfolio-text-primary)] uppercase tracking-tight">
               Bog‘lanish & Loyiha Muhokamasi
@@ -60,7 +60,7 @@ export default function ContactPage() {
             <div className="lg:col-span-5 space-y-6">
               <PortfolioCard hasCorners accent="cyan" className="p-6">
                 <div className="font-mono text-xs text-[var(--portfolio-primary)] uppercase mb-4 font-bold">
-                  // TELEGRAM ORQALI TEZKOR ALOQA
+                  {'// TELEGRAM ORQALI TEZKOR ALOQA'}
                 </div>
                 <div className="space-y-4">
                   <a
@@ -108,7 +108,7 @@ export default function ContactPage() {
               {/* Email & Location */}
               <PortfolioCard hasCorners accent="gold" className="p-6">
                 <div className="font-mono text-xs text-[var(--portfolio-accent-gold)] uppercase mb-3 font-bold">
-                  // ELEKTRON POCHTA VA MANZIL
+                  {'// ELEKTRON POCHTA VA MANZIL'}
                 </div>
 
                 <div className="flex items-center justify-between p-3.5 border border-[var(--portfolio-border)] bg-[var(--portfolio-bg-elevation-1)] font-mono text-xs mb-4">
@@ -134,7 +134,7 @@ export default function ContactPage() {
               {/* Direct Telegram Dispatch Button */}
               <div className="p-6 border border-[var(--portfolio-border-bright)] bg-[var(--portfolio-bg-paper)] font-mono text-xs space-y-3">
                 <div className="text-[var(--portfolio-primary)] font-bold">
-                  // BIR KLIKDA TELEGRAMGA YOZISH
+                  {'// BIR KLIKDA TELEGRAMGA YOZISH'}
                 </div>
                 <p className="text-[var(--portfolio-text-secondary)] leading-relaxed">
                   Loyiha parametrlarini tanlab, to‘g‘ridan-to‘g‘ri shaxsiy Telegram orqali xabar yuborishingiz mumkin:
@@ -157,7 +157,7 @@ export default function ContactPage() {
             <div className="lg:col-span-7">
               <PortfolioCard hasCorners accent="cyan" className="p-8">
                 <div className="flex items-center justify-between mb-6 pb-3 border-b border-[var(--portfolio-border)] font-mono text-xs">
-                  <span className="text-[var(--portfolio-primary)] font-bold">// LOYIHA PARAMETRLARI</span>
+                  <span className="text-[var(--portfolio-primary)] font-bold">{'// LOYIHA PARAMETRLARI'}</span>
                   <Badge variant="cyan">SO‘ROV</Badge>
                 </div>
 

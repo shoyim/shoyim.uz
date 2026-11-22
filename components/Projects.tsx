@@ -32,7 +32,7 @@ export const Projects: React.FC = () => {
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
           <div>
             <div className="font-mono text-xs text-[var(--portfolio-primary)] tracking-wider uppercase mb-2">
-              // 03. PORTFOLIO & REPOZITORIYLAR
+              {'// 03. PORTFOLIO & REPOZITORIYLAR'}
             </div>
             <h2 className="text-3xl sm:text-4xl font-bold font-mono text-[var(--portfolio-text-primary)] uppercase tracking-tight">
               Amalga Oshirilgan Loyihalar
@@ -66,11 +66,10 @@ export const Projects: React.FC = () => {
             <button
               key={cat.id}
               onClick={() => setActiveCategory(cat.id)}
-              className={`px-4 py-2 font-mono text-xs tracking-wider border rounded-none cursor-pointer transition-all duration-150 ${
-                activeCategory === cat.id
-                  ? 'bg-[var(--portfolio-primary)] text-[#0a0d14] dark:text-[#0a0d14] font-bold border-[var(--portfolio-primary)]'
-                  : 'bg-[var(--portfolio-bg-paper)] text-[var(--portfolio-text-secondary)] border-[var(--portfolio-border)] hover:border-[var(--portfolio-border-bright)] hover:text-[var(--portfolio-text-primary)]'
-              }`}
+              className={`px-4 py-2 font-mono text-xs tracking-wider border rounded-none cursor-pointer transition-all duration-150 ${activeCategory === cat.id
+                ? 'bg-[var(--portfolio-primary)] text-[#0a0d14] dark:text-[#0a0d14] font-bold border-[var(--portfolio-primary)]'
+                : 'bg-[var(--portfolio-bg-paper)] text-[var(--portfolio-text-secondary)] border-[var(--portfolio-border)] hover:border-[var(--portfolio-border-bright)] hover:text-[var(--portfolio-text-primary)]'
+                }`}
             >
               [ {cat.label} ]
             </button>
@@ -200,7 +199,7 @@ export const Projects: React.FC = () => {
           <PortfolioCard hasCorners accent="cyan" className="max-w-2xl w-full p-6 bg-[var(--portfolio-bg-paper)] border-[var(--portfolio-border)]">
             <div className="flex items-center justify-between gap-4 mb-4 pb-3 border-b border-[var(--portfolio-border)]">
               <div className="font-mono text-xs text-[var(--portfolio-primary)] font-bold">
-                // LOYIHA :: {selectedProject.title}
+                {'// LOYIHA :: ' + selectedProject.title}
               </div>
               <button
                 onClick={() => setSelectedProject(null)}

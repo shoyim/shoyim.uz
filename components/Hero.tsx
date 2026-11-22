@@ -102,7 +102,7 @@ export const Hero: React.FC = () => {
               {/* Terminal Body */}
               <div className="p-5 font-mono text-xs space-y-3 bg-[var(--portfolio-bg-default)] text-[var(--portfolio-text-secondary)]">
                 <div className="text-[var(--portfolio-primary)] font-bold">
-                  // SHOYIM OBLOQULOV // OVERVIEW
+                  {'// SHOYIM OBLOQULOV // OVERVIEW'}
                 </div>
                 <div>
                   <span className="text-[var(--portfolio-accent-gold)]">LOCATION:</span> Samarqand, O‘zbekiston
@@ -142,7 +142,7 @@ export const Hero: React.FC = () => {
           {PORTFOLIO_DATA.profile.stats.map((stat, idx) => (
             <PortfolioCard key={idx} hasCorners accent={idx === 0 ? 'cyan' : idx === 1 ? 'gold' : 'cyan'}>
               <div className="font-mono text-xs text-[var(--portfolio-text-secondary)] uppercase mb-1">
-                // {stat.label}
+                {'// ' + stat.label}
               </div>
               <div className="text-3xl sm:text-4xl font-bold font-mono text-[var(--portfolio-text-primary)] tracking-tight mb-1">
                 <span className="text-[var(--portfolio-primary)]">{stat.value}</span>{' '}

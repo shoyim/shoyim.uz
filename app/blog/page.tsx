@@ -45,7 +45,7 @@ export default function BlogPage() {
           {/* Page Header */}
           <div className="mb-12">
             <div className="font-mono text-xs text-[var(--portfolio-primary)] tracking-wider uppercase mb-2">
-              // MAQOLALAR & TAHLILLAR
+              {'// MAQOLALAR & TAHLILLAR'}
             </div>
             <h1 className="text-3xl sm:text-5xl font-bold font-mono text-[var(--portfolio-text-primary)] uppercase tracking-tight">
               Texnik Maqolalar & Arxitektura

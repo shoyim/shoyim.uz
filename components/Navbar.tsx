@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useSyncExternalStore } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { PORTFOLIO_DATA } from '@/data/portfolio';
@@ -8,26 +8,26 @@ import { PortfolioButton } from './ui/KepButton';
 import { Terminal, Send, Menu, X, ArrowUpRight, Sun, Moon } from 'lucide-react';
 import { GithubIcon } from './ui/Icons';
 
+const subscribeTheme = (callback: () => void) => {
+  window.addEventListener('storage', callback);
+  return () => window.removeEventListener('storage', callback);
+};
+
+const getThemeSnapshot = (): 'dark' | 'light' => {
+  if (typeof window === 'undefined') return 'dark';
+  const saved = localStorage.getItem('portfolio-theme');
+  return saved === 'light' ? 'light' : 'dark';
+};
+
+const getThemeServerSnapshot = (): 'dark' | 'light' => 'dark';
+
 export const Navbar: React.FC = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [theme, setTheme] = useState<'dark' | 'light'>('dark');
+  const theme = useSyncExternalStore(subscribeTheme, getThemeSnapshot, getThemeServerSnapshot);
   const pathname = usePathname();
-
-  useEffect(() => {
-    const savedTheme = localStorage.getItem('portfolio-theme') as 'dark' | 'light' | null;
-    const initialTheme = savedTheme || 'dark';
-    setTheme(initialTheme);
-    document.documentElement.setAttribute('data-theme', initialTheme);
-    if (initialTheme === 'dark') {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-    }
-  }, []);
 
   const toggleTheme = () => {
     const nextTheme = theme === 'dark' ? 'light' : 'dark';
-    setTheme(nextTheme);
     document.documentElement.setAttribute('data-theme', nextTheme);
     localStorage.setItem('portfolio-theme', nextTheme);
     if (nextTheme === 'dark') {
@@ -35,6 +35,7 @@ export const Navbar: React.FC = () => {
     } else {
       document.documentElement.classList.remove('dark');
     }
+    window.dispatchEvent(new Event('storage'));
   };
 
   const navLinks = [
@@ -112,7 +113,7 @@ export const Navbar: React.FC = () => {
             variant="outline"
             icon={<ArrowUpRight className="w-3.5 h-3.5" />}
           >
-            Telegram // Portfolio
+            {'Telegram // Portfolio'}
           </PortfolioButton>
         </div>
 
@@ -146,7 +147,7 @@ export const Navbar: React.FC = () => {
               onClick={() => setMobileMenuOpen(false)}
               className="px-3 py-2 text-[var(--portfolio-text-secondary)] hover:text-[var(--portfolio-text-primary)] hover:bg-[var(--portfolio-bg-elevation-1)] border-l-2 border-transparent hover:border-[var(--portfolio-primary)]"
             >
-              <span className="text-[var(--portfolio-primary)] mr-2">{item.num} //</span>
+              <span className="text-[var(--portfolio-primary)] mr-2">{item.num} {'//'}</span>
               {item.label}
             </Link>
           ))}

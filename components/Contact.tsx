@@ -29,7 +29,7 @@ export const Contact: React.FC = () => {
         {/* Section Header */}
         <div className="mb-14">
           <div className="font-mono text-xs text-[var(--portfolio-primary)] tracking-wider uppercase mb-2">
-            // 05. BOG‘LANISH VA HAMKORLIK
+            {'// 05. BOG‘LANISH VA HAMKORLIK'}
           </div>
           <h2 className="text-3xl sm:text-4xl font-bold font-mono text-[var(--portfolio-text-primary)] uppercase tracking-tight">
             Aloqa & Loyihalar Uchun
@@ -44,7 +44,7 @@ export const Contact: React.FC = () => {
           <div className="lg:col-span-5 space-y-6">
             <PortfolioCard hasCorners accent="cyan" className="p-6">
               <div className="font-mono text-xs text-[var(--portfolio-primary)] uppercase mb-4">
-                // TELEGRAM BEVOSITA ALOQA
+                {'// TELEGRAM BEVOSITA ALOQA'}
               </div>
               <div className="space-y-4">
                 <a
@@ -91,7 +91,7 @@ export const Contact: React.FC = () => {
 
             <PortfolioCard hasCorners accent="gold" className="p-6">
               <div className="font-mono text-xs text-[var(--portfolio-accent-gold)] uppercase mb-2">
-                // ELEKTRON POCHTA
+                {'// ELEKTRON POCHTA'}
               </div>
               <div className="flex items-center justify-between p-3 border border-[var(--portfolio-border)] bg-[var(--portfolio-bg-elevation-1)] font-mono text-xs">
                 <div className="flex items-center gap-2 text-[var(--portfolio-text-primary)]">
@@ -118,7 +118,7 @@ export const Contact: React.FC = () => {
           <div className="lg:col-span-7">
             <PortfolioCard hasCorners accent="cyan" className="p-8">
               <div className="flex items-center justify-between mb-6 pb-3 border-b border-[var(--portfolio-border)] font-mono text-xs">
-                <span className="text-[var(--portfolio-primary)] font-bold">// XABAR YUBORISH</span>
+                <span className="text-[var(--portfolio-primary)] font-bold">{'// XABAR YUBORISH'}</span>
                 <Badge variant="cyan">ALOQA</Badge>
               </div>
 
