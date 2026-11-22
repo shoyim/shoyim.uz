@@ -1,26 +1,150 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --kep-bg-default: #0a0d14;
+  --kep-bg-paper: #0e121a;
+  --kep-bg-elevation-1: #131821;
+  --kep-bg-elevation-2: #1c2331;
+  --kep-bg-elevation-3: #283142;
+  --kep-text-primary: #edf1f4;
+  --kep-text-secondary: #9caeb8;
+  --kep-text-muted: #596a75;
+  --kep-primary: #93d7e2;
+  --kep-primary-dim: rgba(147, 215, 226, 0.15);
+  --kep-primary-glow: rgba(147, 215, 226, 0.35);
+  --kep-accent-gold: #d8c697;
+  --kep-accent-green: #28a66a;
+  --kep-accent-purple: #bd93f9;
+  --kep-border: rgba(255, 255, 255, 0.08);
+  --kep-border-bright: rgba(147, 215, 226, 0.3);
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-kep-bg: var(--kep-bg-default);
+  --color-kep-paper: var(--kep-bg-paper);
+  --color-kep-elevation-1: var(--kep-bg-elevation-1);
+  --color-kep-elevation-2: var(--kep-bg-elevation-2);
+  --color-kep-elevation-3: var(--kep-bg-elevation-3);
+  --color-kep-primary: var(--kep-primary);
+  --color-kep-gold: var(--kep-accent-gold);
+  --color-kep-green: var(--kep-accent-green);
+  --color-kep-purple: var(--kep-accent-purple);
+  --color-kep-text: var(--kep-text-primary);
+  --color-kep-secondary: var(--kep-text-secondary);
+  --color-kep-border: var(--kep-border);
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+html, body {
+  background-color: var(--kep-bg-default);
+  color: var(--kep-text-primary);
+  font-family: var(--font-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  scroll-behavior: smooth;
+  margin: 0;
+  padding: 0;
+}
+
+/* Custom Sleek Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0a0d14;
+}
+::-webkit-scrollbar-thumb {
+  background: #1c2331;
+  border-radius: 0px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--kep-primary);
+}
+
+/* Selection Highlight */
+::selection {
+  background: rgba(147, 215, 226, 0.25);
+  color: #ffffff;
+}
+
+/* KEP.uz Dots Grid Pattern */
+.kep-bg-dots {
+  background-image: 
+    radial-gradient(circle, rgba(147, 215, 226, 0.12) 1.25px, transparent 1.25px),
+    radial-gradient(circle at 85% 15%, rgba(147, 215, 226, 0.08) 0, transparent 35%);
+  background-size: 20px 20px, auto;
+}
+
+/* KEP.uz Technical Line Grid */
+.kep-bg-grid {
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+/* KEP.uz Exact HUD Corners Component Effect */
+.kep-hud-corner {
+  position: relative;
+  border: 1px solid var(--kep-border);
+  background-color: var(--kep-bg-paper);
+}
+
+.kep-hud-corner::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  pointer-events: none;
+  background:
+    linear-gradient(90deg, var(--kep-primary), transparent) top left / 24px 1px no-repeat,
+    linear-gradient(180deg, var(--kep-primary), transparent) top left / 1px 24px no-repeat,
+    linear-gradient(270deg, var(--kep-primary), transparent) top right / 24px 1px no-repeat,
+    linear-gradient(180deg, var(--kep-primary), transparent) top right / 1px 24px no-repeat,
+    linear-gradient(90deg, var(--kep-primary), transparent) bottom left / 24px 1px no-repeat,
+    linear-gradient(0deg, var(--kep-primary), transparent) bottom left / 1px 24px no-repeat,
+    linear-gradient(270deg, var(--kep-primary), transparent) bottom right / 24px 1px no-repeat,
+    linear-gradient(0deg, var(--kep-primary), transparent) bottom right / 1px 24px no-repeat;
+}
+
+/* Gold Accent HUD Corner for Special Badges */
+.kep-hud-corner-gold {
+  position: relative;
+  border: 1px solid rgba(216, 198, 151, 0.2);
+  background-color: var(--kep-bg-paper);
+}
+
+.kep-hud-corner-gold::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  pointer-events: none;
+  background:
+    linear-gradient(90deg, var(--kep-accent-gold), transparent) top left / 20px 1px no-repeat,
+    linear-gradient(180deg, var(--kep-accent-gold), transparent) top left / 1px 20px no-repeat,
+    linear-gradient(270deg, var(--kep-accent-gold), transparent) top right / 20px 1px no-repeat,
+    linear-gradient(180deg, var(--kep-accent-gold), transparent) top right / 1px 20px no-repeat,
+    linear-gradient(90deg, var(--kep-accent-gold), transparent) bottom left / 20px 1px no-repeat,
+    linear-gradient(0deg, var(--kep-accent-gold), transparent) bottom left / 1px 20px no-repeat,
+    linear-gradient(270deg, var(--kep-accent-gold), transparent) bottom right / 20px 1px no-repeat,
+    linear-gradient(0deg, var(--kep-accent-gold), transparent) bottom right / 1px 20px no-repeat;
+}
+
+/* Top Glow Line */
+.kep-top-line {
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--kep-accent-gold), var(--kep-primary), transparent);
+}
+
+/* Blinking cursor animation */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.animate-cursor {
+  animation: blink 1s infinite;
 }
