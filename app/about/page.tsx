@@ -1,5 +1,6 @@
 import React from 'react';
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
 import { Breadcrumbs } from '@/components/Breadcrumbs';
@@ -116,6 +117,24 @@ export default function AboutPage() {
 
             {/* Right: Technical Specs & Philosophy */}
             <div className="lg:col-span-4 space-y-6">
+              {/* Profile Photo Identity Card */}
+              <PortfolioCard hasCorners accent="cyan" className="p-4 flex items-center gap-4">
+                <div className="w-20 h-20 relative overflow-hidden border border-[var(--portfolio-border-bright)] bg-[var(--portfolio-bg-elevation-1)] shrink-0 shadow-sm">
+                  <Image
+                    src="/images/profile.jpg"
+                    alt="Shoyim Obloqulov"
+                    width={160}
+                    height={160}
+                    className="w-full h-full object-cover object-top contrast-[1.05]"
+                  />
+                </div>
+                <div className="font-mono">
+                  <div className="text-[11px] text-[var(--portfolio-text-muted)] uppercase tracking-wider">{'// MUHANDIS'}</div>
+                  <div className="text-base font-bold text-[var(--portfolio-text-primary)]">Shoyim Obloqulov</div>
+                  <div className="text-xs text-[var(--portfolio-text-secondary)]">Senior Full-Stack & Architect</div>
+                </div>
+              </PortfolioCard>
+
               {/* Terminal Quick Specs */}
               <PortfolioCard hasCorners accent="cyan" className="p-6">
                 <div className="flex items-center gap-2 pb-3 mb-4 border-b border-[var(--portfolio-border)] font-mono text-xs text-[var(--portfolio-primary)]">

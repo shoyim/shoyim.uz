@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Image from 'next/image';
 import { PORTFOLIO_DATA } from '@/data/portfolio';
 import { PortfolioButton } from './ui/KepButton';
 import { PortfolioCard } from './ui/KepCard';
@@ -82,7 +83,7 @@ export const Hero: React.FC = () => {
             </div>
           </div>
 
-          {/* Right Column: Terminal Overview */}
+          {/* Right Column: Developer Profile & HUD Terminal */}
           <div className="lg:col-span-5">
             <PortfolioCard hasCorners accent="cyan" className="p-0 overflow-hidden">
               {/* Window Bar */}
@@ -91,42 +92,97 @@ export const Hero: React.FC = () => {
                   <span className="w-2.5 h-2.5 border border-[var(--portfolio-border-bright)] bg-transparent inline-block" />
                   <span className="w-2.5 h-2.5 bg-[var(--portfolio-text-muted)] inline-block" />
                   <span className="w-2.5 h-2.5 bg-[var(--portfolio-text-primary)] inline-block" />
-                  <span className="text-[var(--portfolio-text-secondary)] ml-2">profile.sh</span>
+                  <span className="text-[var(--portfolio-text-secondary)] ml-2">dev_identity.sys</span>
+                </div>
+                <div className="flex items-center gap-2 font-mono text-[11px] text-[var(--portfolio-text-primary)]">
+                  <span className="w-2 h-2 rounded-full bg-[var(--portfolio-primary)] animate-pulse inline-block" />
+                  <span>ONLINE // VERIFIED</span>
                 </div>
               </div>
 
-              {/* Terminal Body */}
-              <div className="p-5 font-mono text-xs space-y-3 bg-[var(--portfolio-bg-default)] text-[var(--portfolio-text-secondary)]">
-                <div className="text-[var(--portfolio-primary)] font-bold">
-                  {'// SHOYIM OBLOQULOV // OVERVIEW'}
+              {/* Photo & Profile Identity Header */}
+              <div className="p-5 bg-[var(--portfolio-bg-paper)] border-b border-[var(--portfolio-border)]">
+                <div className="flex flex-col sm:flex-row items-center sm:items-start gap-5">
+                  {/* Portrait with HUD Framing */}
+                  <div className="relative group shrink-0">
+                    <div className="w-32 h-32 sm:w-36 sm:h-36 relative overflow-hidden border border-[var(--portfolio-border-bright)] bg-[var(--portfolio-bg-elevation-1)] shadow-lg">
+                      <Image
+                        src="/images/profile.jpg"
+                        alt="Shoyim Obloqulov"
+                        width={280}
+                        height={280}
+                        priority
+                        className="w-full h-full object-cover object-top contrast-[1.05] brightness-[1.02] transition-transform duration-500 group-hover:scale-105"
+                      />
+                    </div>
+                    {/* HUD Corner Brackets on Photo */}
+                    <div className="absolute -top-1 -left-1 w-2.5 h-2.5 border-t-2 border-l-2 border-[var(--portfolio-primary)] pointer-events-none" />
+                    <div className="absolute -top-1 -right-1 w-2.5 h-2.5 border-t-2 border-r-2 border-[var(--portfolio-primary)] pointer-events-none" />
+                    <div className="absolute -bottom-1 -left-1 w-2.5 h-2.5 border-b-2 border-l-2 border-[var(--portfolio-primary)] pointer-events-none" />
+                    <div className="absolute -bottom-1 -right-1 w-2.5 h-2.5 border-b-2 border-r-2 border-[var(--portfolio-primary)] pointer-events-none" />
+                  </div>
+
+                  {/* Profile Info */}
+                  <div className="flex-1 text-center sm:text-left font-mono">
+                    <div className="text-[11px] text-[var(--portfolio-text-muted)] uppercase tracking-wider mb-1">
+                      {'// LEAD ARCHITECT'}
+                    </div>
+                    <h3 className="text-xl font-bold text-[var(--portfolio-text-primary)] tracking-tight">
+                      Shoyim Obloqulov
+                    </h3>
+                    <div className="text-xs text-[var(--portfolio-text-secondary)] mt-1">
+                      Samarqand, O‘zbekiston (UTC+5)
+                    </div>
+
+                    <div className="mt-3 pt-3 border-t border-[var(--portfolio-border)] flex flex-wrap gap-1.5 justify-center sm:justify-start">
+                      <Badge variant="cyan">Full-Stack</Badge>
+                      <Badge variant="gold">System Arch</Badge>
+                      <Badge variant="green">Open Source</Badge>
+                    </div>
+                  </div>
                 </div>
-                <div>
-                  <span className="text-[var(--portfolio-accent-gold)]">LOCATION:</span> Samarqand, O‘zbekiston
+              </div>
+
+              {/* Terminal Specs Body */}
+              <div className="p-5 font-mono text-xs space-y-2.5 bg-[var(--portfolio-bg-default)] text-[var(--portfolio-text-secondary)]">
+                <div className="flex items-center justify-between pb-1.5 border-b border-[var(--portfolio-border)]">
+                  <span className="text-[var(--portfolio-text-muted)]">CORE_DOMAIN:</span>
+                  <span className="text-[var(--portfolio-text-primary)] font-bold">https://shoyim.uz</span>
                 </div>
-                <div>
-                  <span className="text-[var(--portfolio-accent-gold)]">ROLE:</span> Senior Full-Stack Engineer
+                <div className="flex items-center justify-between pb-1.5 border-b border-[var(--portfolio-border)]">
+                  <span className="text-[var(--portfolio-text-muted)]">OPEN_SOURCE:</span>
+                  <a
+                    href="https://github.com/shoyim"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[var(--portfolio-text-primary)] hover:underline"
+                  >
+                    github.com/shoyim
+                  </a>
                 </div>
-                <div>
-                  <span className="text-[var(--portfolio-accent-gold)]">DOMAIN:</span> https://shoyim.uz
+                <div className="flex items-center justify-between pb-1.5 border-b border-[var(--portfolio-border)]">
+                  <span className="text-[var(--portfolio-text-muted)]">TELEGRAM_FEED:</span>
+                  <a
+                    href="https://t.me/shoyim_portfolio"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[var(--portfolio-text-primary)] hover:underline"
+                  >
+                    t.me/shoyim_portfolio
+                  </a>
                 </div>
-                <div>
-                  <span className="text-[var(--portfolio-accent-gold)]">OPEN_SOURCE:</span> github.com/shoyim
-                </div>
-                <div>
-                  <span className="text-[var(--portfolio-accent-gold)]">TELEGRAM_FEED:</span> t.me/shoyim_portfolio
-                </div>
-                <div className="pt-2 border-t border-[var(--portfolio-border)]">
-                  <span className="text-[var(--portfolio-accent-green)] font-bold">FOCUS:</span> [Enterprise Systems & Scalable Architectures]
+                <div className="pt-1 text-[11px] leading-relaxed">
+                  <span className="text-[var(--portfolio-text-primary)] font-bold">FOCUS:</span> [Enterprise Platforms, High-Load APIs & Distributed Systems]
                 </div>
               </div>
 
               {/* Bottom Info Bar */}
-              <div className="grid grid-cols-2 border-t border-[var(--portfolio-border)] bg-[var(--portfolio-bg-elevation-1)] text-center font-mono text-[11px] py-2">
+              <div className="grid grid-cols-2 border-t border-[var(--portfolio-border)] bg-[var(--portfolio-bg-elevation-1)] text-center font-mono text-[11px] py-2.5">
                 <div className="border-r border-[var(--portfolio-border)] text-[var(--portfolio-text-secondary)]">
-                  ROLE: <span className="text-[var(--portfolio-text-primary)]">FULL-STACK</span>
+                  ROLE: <span className="text-[var(--portfolio-text-primary)] font-bold">FULL-STACK</span>
                 </div>
                 <div className="text-[var(--portfolio-text-secondary)]">
-                  EXPERIENCE: <span className="text-[var(--portfolio-accent-green)]">5+ YIL</span>
+                  EXPERIENCE: <span className="text-[var(--portfolio-text-primary)] font-bold">5+ YIL</span>
                 </div>
               </div>
             </PortfolioCard>

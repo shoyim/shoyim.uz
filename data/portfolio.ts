@@ -33,6 +33,7 @@ export interface ExperienceItem {
 export interface PortfolioData {
   profile: {
     name: string;
+    avatar: string;
     callsign: string;
     title: string;
     bio: string;
@@ -53,6 +54,7 @@ export interface PortfolioData {
 export const PORTFOLIO_DATA: PortfolioData = {
   profile: {
     name: 'Shoyim Obloqulov',
+    avatar: '/images/profile.jpg',
     callsign: 'SHOYIM.UZ',
     title: 'Senior Full-Stack Engineer & System Architect',
     bio: "PHP/Laravel, Python/Django, Next.js, Vue.js va yuqori yuklamali tarqatilgan tizimlar bo'yicha mutaxassis. Algoritmik tizimlar, Telegram ekotizimlari va ochiq kodli paketlar (Open-Source) muallifi.",
