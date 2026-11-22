@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { Plus_Jakarta_Sans, JetBrains_Mono } from 'next/font/google';
+import Script from 'next/script';
 import './globals.css';
 
 const plusJakartaSans = Plus_Jakarta_Sans({
@@ -64,21 +65,19 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <head>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              try {
-                const t = localStorage.getItem('portfolio-theme') || 'dark';
-                document.documentElement.setAttribute('data-theme', t);
-                if (t === 'dark') {
-                  document.documentElement.classList.add('dark');
-                } else {
-                  document.documentElement.classList.remove('dark');
-                }
-              } catch (e) {}
-            `,
-          }}
-        />
+        <Script id="theme-init" strategy="beforeInteractive">
+          {`
+            try {
+              var t = localStorage.getItem('portfolio-theme') || 'dark';
+              document.documentElement.setAttribute('data-theme', t);
+              if (t === 'dark') {
+                document.documentElement.classList.add('dark');
+              } else {
+                document.documentElement.classList.remove('dark');
+              }
+            } catch (e) {}
+          `}
+        </Script>
       </head>
       <body className="min-h-screen bg-[var(--portfolio-bg-default)] text-[var(--portfolio-text-primary)] flex flex-col font-sans antialiased selection:bg-[var(--portfolio-primary-dim)]">
         <div className="portfolio-top-line fixed top-0 left-0 right-0 z-50 pointer-events-none" />
