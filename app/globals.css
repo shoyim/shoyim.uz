@@ -1,47 +1,49 @@
 @import "tailwindcss";
 
 :root {
-  /* Dark Theme by default */
-  --portfolio-bg-default: #0a0d14;
-  --portfolio-bg-paper: #0e121a;
-  --portfolio-bg-elevation-1: #131821;
-  --portfolio-bg-elevation-2: #1c2331;
-  --portfolio-bg-elevation-3: #283142;
-  --portfolio-text-primary: #edf1f4;
-  --portfolio-text-secondary: #9caeb8;
-  --portfolio-text-muted: #596a75;
-  --portfolio-primary: #93d7e2;
-  --portfolio-primary-dim: rgba(147, 215, 226, 0.12);
-  --portfolio-primary-glow: rgba(147, 215, 226, 0.3);
-  --portfolio-accent-gold: #d8c697;
-  --portfolio-accent-green: #28a66a;
-  --portfolio-accent-purple: #bd93f9;
-  --portfolio-border: rgba(255, 255, 255, 0.08);
-  --portfolio-border-bright: rgba(147, 215, 226, 0.3);
-  --portfolio-dot-color: rgba(147, 215, 226, 0.12);
+  /* Dark Theme by default - Pure Black & White Monochrome */
+  --portfolio-bg-default: #000000;
+  --portfolio-bg-paper: #080808;
+  --portfolio-bg-elevation-1: #111111;
+  --portfolio-bg-elevation-2: #1a1a1a;
+  --portfolio-bg-elevation-3: #262626;
+  --portfolio-text-primary: #ffffff;
+  --portfolio-text-secondary: #a3a3a3;
+  --portfolio-text-muted: #737373;
+  --portfolio-primary: #ffffff;
+  --portfolio-primary-text: #000000;
+  --portfolio-primary-dim: rgba(255, 255, 255, 0.08);
+  --portfolio-primary-glow: rgba(255, 255, 255, 0.25);
+  --portfolio-accent-gold: #ffffff;
+  --portfolio-accent-green: #ffffff;
+  --portfolio-accent-purple: #ffffff;
+  --portfolio-border: rgba(255, 255, 255, 0.15);
+  --portfolio-border-bright: rgba(255, 255, 255, 0.6);
+  --portfolio-dot-color: rgba(255, 255, 255, 0.08);
   --portfolio-grid-color: rgba(255, 255, 255, 0.04);
 }
 
-/* Light Theme Variables */
+/* Light Theme Variables - Pure White & Black Monochrome */
 :root[data-theme='light'] {
-  --portfolio-bg-default: #f6f8fa;
-  --portfolio-bg-paper: #ffffff;
-  --portfolio-bg-elevation-1: #f0f3f6;
-  --portfolio-bg-elevation-2: #e5e9ee;
-  --portfolio-bg-elevation-3: #d8dee4;
-  --portfolio-text-primary: #1f2328;
-  --portfolio-text-secondary: #57606a;
-  --portfolio-text-muted: #8c959f;
-  --portfolio-primary: #0969da;
-  --portfolio-primary-dim: rgba(9, 105, 218, 0.08);
-  --portfolio-primary-glow: rgba(9, 105, 218, 0.2);
-  --portfolio-accent-gold: #9a6700;
-  --portfolio-accent-green: #1a7f37;
-  --portfolio-accent-purple: #8250df;
-  --portfolio-border: rgba(31, 35, 40, 0.12);
-  --portfolio-border-bright: rgba(9, 105, 218, 0.35);
-  --portfolio-dot-color: rgba(9, 105, 218, 0.1);
-  --portfolio-grid-color: rgba(31, 35, 40, 0.05);
+  --portfolio-bg-default: #ffffff;
+  --portfolio-bg-paper: #f8f8f8;
+  --portfolio-bg-elevation-1: #f0f0f0;
+  --portfolio-bg-elevation-2: #e4e4e4;
+  --portfolio-bg-elevation-3: #d4d4d4;
+  --portfolio-text-primary: #000000;
+  --portfolio-text-secondary: #525252;
+  --portfolio-text-muted: #737373;
+  --portfolio-primary: #000000;
+  --portfolio-primary-text: #ffffff;
+  --portfolio-primary-dim: rgba(0, 0, 0, 0.06);
+  --portfolio-primary-glow: rgba(0, 0, 0, 0.2);
+  --portfolio-accent-gold: #000000;
+  --portfolio-accent-green: #000000;
+  --portfolio-accent-purple: #000000;
+  --portfolio-border: rgba(0, 0, 0, 0.16);
+  --portfolio-border-bright: rgba(0, 0, 0, 0.6);
+  --portfolio-dot-color: rgba(0, 0, 0, 0.08);
+  --portfolio-grid-color: rgba(0, 0, 0, 0.04);
 }
 
 @theme inline {
@@ -75,7 +77,7 @@ html, body {
   transition: background-color 200ms ease, color 200ms ease;
 }
 
-/* Custom Sleek Scrollbar */
+/* Custom Sleek Monochrome Scrollbar */
 ::-webkit-scrollbar {
   width: 6px;
   height: 6px;
@@ -93,8 +95,8 @@ html, body {
 
 /* Selection Highlight */
 ::selection {
-  background: var(--portfolio-primary-glow);
-  color: inherit;
+  background: var(--portfolio-primary-dim);
+  color: var(--portfolio-primary);
 }
 
 /* Dots Grid Pattern */
@@ -140,11 +142,11 @@ html, body {
     linear-gradient(0deg, var(--portfolio-primary), transparent) bottom right / 1px 24px no-repeat;
 }
 
-/* Gold Accent HUD Corner for Special Badges */
+/* Gold Accent HUD Corner (Monochrome High-Contrast Variant) */
 .portfolio-hud-corner-gold,
 .kep-hud-corner-gold {
   position: relative;
-  border: 1px solid var(--portfolio-accent-gold);
+  border: 1px solid var(--portfolio-border-bright);
   background-color: var(--portfolio-bg-paper);
 }
 
@@ -155,21 +157,21 @@ html, body {
   inset: -1px;
   pointer-events: none;
   background:
-    linear-gradient(90deg, var(--portfolio-accent-gold), transparent) top left / 20px 1px no-repeat,
-    linear-gradient(180deg, var(--portfolio-accent-gold), transparent) top left / 1px 20px no-repeat,
-    linear-gradient(270deg, var(--portfolio-accent-gold), transparent) top right / 20px 1px no-repeat,
-    linear-gradient(180deg, var(--portfolio-accent-gold), transparent) top right / 1px 20px no-repeat,
-    linear-gradient(90deg, var(--portfolio-accent-gold), transparent) bottom left / 20px 1px no-repeat,
-    linear-gradient(0deg, var(--portfolio-accent-gold), transparent) bottom left / 1px 20px no-repeat,
-    linear-gradient(270deg, var(--portfolio-accent-gold), transparent) bottom right / 20px 1px no-repeat,
-    linear-gradient(0deg, var(--portfolio-accent-gold), transparent) bottom right / 1px 20px no-repeat;
+    linear-gradient(90deg, var(--portfolio-border-bright), transparent) top left / 20px 1px no-repeat,
+    linear-gradient(180deg, var(--portfolio-border-bright), transparent) top left / 1px 20px no-repeat,
+    linear-gradient(270deg, var(--portfolio-border-bright), transparent) top right / 20px 1px no-repeat,
+    linear-gradient(180deg, var(--portfolio-border-bright), transparent) top right / 1px 20px no-repeat,
+    linear-gradient(90deg, var(--portfolio-border-bright), transparent) bottom left / 20px 1px no-repeat,
+    linear-gradient(0deg, var(--portfolio-border-bright), transparent) bottom left / 1px 20px no-repeat,
+    linear-gradient(270deg, var(--portfolio-border-bright), transparent) bottom right / 20px 1px no-repeat,
+    linear-gradient(0deg, var(--portfolio-border-bright), transparent) bottom right / 1px 20px no-repeat;
 }
 
-/* Top Glow Line */
+/* Top Line - Pure Monochrome Contrast */
 .portfolio-top-line,
 .kep-top-line {
   height: 2px;
-  background: linear-gradient(90deg, transparent, var(--portfolio-accent-gold), var(--portfolio-primary), transparent);
+  background: linear-gradient(90deg, transparent, var(--portfolio-primary), transparent);
 }
 
 /* Blinking cursor animation */

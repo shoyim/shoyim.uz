@@ -23,21 +23,19 @@ Ushbu portfolio veb-sayti O‘zbekistonlik Senior Full-stack dasturchi **Shoyim 
 
 Dizayn tizimi to‘liq `--portfolio-*` o‘zgaruvchilariga asoslangan bo‘lib, oq va qora mavzuda avtomatik moslashadi:
 
-### 1. Qorong‘i Mavzu (Dark Mode — Standart):
-* `Body Background`: `#0a0d14`
-* `Surface / Paper`: `#0e121a`
-* `Elevation 1 / 2`: `#131821` / `#1c2331`
-* `Primary Accent`: `#93d7e2` (Muzli feruza)
-* `Gold Accent`: `#d8c697`
-* `Chegaralar`: `rgba(255, 255, 255, 0.08)`
+### 1. Qorong‘i Mavzu (Dark Mode — Standart — Pure Monochrome):
+* `Body Background`: `#000000`
+* `Surface / Paper`: `#080808`
+* `Elevation 1 / 2`: `#111111` / `#1a1a1a`
+* `Primary Accent`: `#ffffff` (Sof oq)
+* `Chegaralar`: `rgba(255, 255, 255, 0.15)`
 
-### 2. Yorug‘ Mavzu (Light Mode):
-* `Body Background`: `#f6f8fa`
-* `Surface / Paper`: `#ffffff`
-* `Elevation 1 / 2`: `#f0f3f6` / `#e5e9ee`
-* `Primary Accent`: `#0969da` (Aniq chuqur ko‘k)
-* `Gold Accent`: `#9a6700`
-* `Chegaralar`: `rgba(31, 35, 40, 0.12)`
+### 2. Yorug‘ Mavzu (Light Mode — Pure Monochrome):
+* `Body Background`: `#ffffff`
+* `Surface / Paper`: `#f8f8f8`
+* `Elevation 1 / 2`: `#f0f0f0` / `#e4e4e4`
+* `Primary Accent`: `#000000` (Sof qora)
+* `Chegaralar`: `rgba(0, 0, 0, 0.16)`
 
 ### 3. Mavzuni O‘zgartirish (Theme Switcher):
 * Navbar da joylashgan **Quyosh / Oy** tugmasi orqali rejim bir klikda almashadi va sozlama `localStorage` da saqlanadi.

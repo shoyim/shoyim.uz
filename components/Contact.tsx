@@ -102,7 +102,7 @@ export const Contact: React.FC = () => {
                   onClick={handleCopyEmail}
                   className="px-2.5 py-1 text-[11px] border border-[var(--portfolio-border)] text-[var(--portfolio-text-secondary)] hover:text-[var(--portfolio-text-primary)] flex items-center gap-1 cursor-pointer"
                 >
-                  {copied ? <Check className="w-3 h-3 text-[var(--portfolio-accent-green)]" /> : <Copy className="w-3 h-3" />}
+                  {copied ? <Check className="w-3 h-3 text-[var(--portfolio-text-primary)]" /> : <Copy className="w-3 h-3" />}
                   <span>{copied ? 'NUSXA OLINDI' : 'NUSXA OLISH'}</span>
                 </button>
               </div>
@@ -123,8 +123,8 @@ export const Contact: React.FC = () => {
               </div>
 
               {formSent ? (
-                <div className="p-8 text-center font-mono space-y-3 bg-[var(--portfolio-bg-elevation-1)] border border-[var(--portfolio-accent-green)]/40">
-                  <div className="w-10 h-10 mx-auto bg-[var(--portfolio-accent-green)]/20 border border-[var(--portfolio-accent-green)] flex items-center justify-center text-[var(--portfolio-accent-green)]">
+                <div className="p-8 text-center font-mono space-y-3 bg-[var(--portfolio-bg-elevation-1)] border border-[var(--portfolio-border-bright)]">
+                  <div className="w-10 h-10 mx-auto bg-[var(--portfolio-primary-dim)] border border-[var(--portfolio-border-bright)] flex items-center justify-center text-[var(--portfolio-text-primary)]">
                     <Check className="w-5 h-5" />
                   </div>
                   <div className="text-base font-bold text-[var(--portfolio-text-primary)]">XABAR QABUL QILINDI!</div>

@@ -92,9 +92,9 @@ export const Hero: React.FC = () => {
               {/* Window Bar */}
               <div className="flex items-center justify-between px-4 py-2.5 border-b border-[var(--portfolio-border)] bg-[var(--portfolio-bg-elevation-1)] text-xs font-mono">
                 <div className="flex items-center gap-2">
-                  <span className="w-2.5 h-2.5 bg-[#ef6f6c] inline-block" />
-                  <span className="w-2.5 h-2.5 bg-[#d8c697] inline-block" />
-                  <span className="w-2.5 h-2.5 bg-[#28a66a] inline-block" />
+                  <span className="w-2.5 h-2.5 border border-[var(--portfolio-border-bright)] bg-transparent inline-block" />
+                  <span className="w-2.5 h-2.5 bg-[var(--portfolio-text-muted)] inline-block" />
+                  <span className="w-2.5 h-2.5 bg-[var(--portfolio-text-primary)] inline-block" />
                   <span className="text-[var(--portfolio-text-secondary)] ml-2">profile.sh</span>
                 </div>
               </div>

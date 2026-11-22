@@ -97,7 +97,7 @@ export default function ProjectsPage() {
                   onClick={() => setSelectedCategory(cat.id)}
                   className={`px-3 py-2 font-mono text-xs border rounded-none cursor-pointer transition-all ${
                     selectedCategory === cat.id
-                      ? 'bg-[var(--portfolio-primary)] text-[#0a0d14] dark:text-[#0a0d14] font-bold border-[var(--portfolio-primary)]'
+                      ? 'bg-[var(--portfolio-primary)] text-[var(--portfolio-primary-text)] font-bold border-[var(--portfolio-primary)]'
                       : 'bg-[var(--portfolio-bg-elevation-1)] text-[var(--portfolio-text-secondary)] border-[var(--portfolio-border)] hover:border-[var(--portfolio-border-bright)] hover:text-[var(--portfolio-text-primary)]'
                   }`}
                 >

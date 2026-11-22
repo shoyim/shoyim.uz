@@ -162,8 +162,8 @@ export default function ContactPage() {
                 </div>
 
                 {submitted ? (
-                  <div className="p-10 text-center font-mono space-y-4 bg-[var(--portfolio-bg-elevation-1)] border border-[var(--portfolio-accent-green)]/40">
-                    <div className="w-12 h-12 mx-auto bg-[var(--portfolio-accent-green)]/20 border border-[var(--portfolio-accent-green)] flex items-center justify-center text-[var(--portfolio-accent-green)]">
+                  <div className="p-10 text-center font-mono space-y-4 bg-[var(--portfolio-bg-elevation-1)] border border-[var(--portfolio-border-bright)]">
+                    <div className="w-12 h-12 mx-auto bg-[var(--portfolio-primary-dim)] border border-[var(--portfolio-border-bright)] flex items-center justify-center text-[var(--portfolio-text-primary)]">
                       <Check className="w-6 h-6" />
                     </div>
                     <div className="text-lg font-bold text-[var(--portfolio-text-primary)]">SO‘ROV MUVAFFAQIYATLI YUBORILDI!</div>
@@ -217,7 +217,7 @@ export default function ContactPage() {
                             onClick={() => setBudget(b)}
                             className={`p-2.5 border text-center cursor-pointer transition-all ${
                               budget === b
-                                ? 'border-[var(--portfolio-accent-gold)] bg-[var(--portfolio-accent-gold)]/15 text-[var(--portfolio-accent-gold)] font-bold'
+                                ? 'border-[var(--portfolio-primary)] bg-[var(--portfolio-primary-dim)] text-[var(--portfolio-text-primary)] font-bold'
                                 : 'border-[var(--portfolio-border)] bg-[var(--portfolio-bg-elevation-1)] text-[var(--portfolio-text-secondary)] hover:border-[var(--portfolio-border-bright)]'
                             }`}
                           >
@@ -240,7 +240,7 @@ export default function ContactPage() {
                             onClick={() => setTimeline(t)}
                             className={`p-2.5 border text-center cursor-pointer transition-all ${
                               timeline === t
-                                ? 'border-[var(--portfolio-accent-green)] bg-[var(--portfolio-accent-green)]/15 text-[var(--portfolio-accent-green)] font-bold'
+                                ? 'border-[var(--portfolio-primary)] bg-[var(--portfolio-primary-dim)] text-[var(--portfolio-text-primary)] font-bold'
                                 : 'border-[var(--portfolio-border)] bg-[var(--portfolio-bg-elevation-1)] text-[var(--portfolio-text-secondary)] hover:border-[var(--portfolio-border-bright)]'
                             }`}
                           >

@@ -150,10 +150,10 @@ export default async function SingleBlogPostPage({ params }: BlogPostPageProps) 
                     <div
                       className={`p-4 border font-mono text-xs leading-relaxed ${
                         sec.callout.type === 'tip'
-                          ? 'border-[var(--portfolio-accent-green)]/40 bg-[var(--portfolio-accent-green)]/10 text-[var(--portfolio-accent-green)]'
+                          ? 'border-[var(--portfolio-border-bright)] bg-[var(--portfolio-primary-dim)] text-[var(--portfolio-text-primary)]'
                           : sec.callout.type === 'warning'
-                          ? 'border-[#ef6f6c]/40 bg-[#ef6f6c]/10 text-[#ef6f6c]'
-                          : 'border-[var(--portfolio-border-bright)] bg-[var(--portfolio-primary-dim)] text-[var(--portfolio-primary)]'
+                          ? 'border-[var(--portfolio-border-bright)] bg-[var(--portfolio-bg-elevation-2)] text-[var(--portfolio-text-primary)]'
+                          : 'border-[var(--portfolio-border-bright)] bg-[var(--portfolio-primary-dim)] text-[var(--portfolio-text-primary)]'
                       }`}
                     >
                       <div className="font-bold uppercase mb-1">
@@ -187,7 +187,7 @@ export default async function SingleBlogPostPage({ params }: BlogPostPageProps) 
 
           {/* Author Bio Box */}
           <PortfolioCard hasCorners accent="gold" className="p-6 mb-12 flex flex-col sm:flex-row items-center gap-6">
-            <div className="w-16 h-16 bg-[var(--portfolio-bg-elevation-1)] border-2 border-[var(--portfolio-accent-gold)] text-[var(--portfolio-accent-gold)] flex items-center justify-center font-bold text-xl font-mono shrink-0">
+            <div className="w-16 h-16 bg-[var(--portfolio-bg-elevation-1)] border-2 border-[var(--portfolio-border-bright)] text-[var(--portfolio-text-primary)] flex items-center justify-center font-bold text-xl font-mono shrink-0">
               SO
             </div>
             <div className="font-mono text-xs space-y-2 text-center sm:text-left">

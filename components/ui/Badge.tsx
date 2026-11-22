@@ -8,10 +8,10 @@ interface BadgeProps {
 
 export const Badge: React.FC<BadgeProps> = ({ children, variant = 'cyan', className = '' }) => {
   const variantStyles = {
-    cyan: 'border-[var(--portfolio-border-bright)] bg-[var(--portfolio-primary-dim)] text-[var(--portfolio-primary)]',
-    gold: 'border-[var(--portfolio-accent-gold)]/40 bg-[var(--portfolio-accent-gold)]/10 text-[var(--portfolio-accent-gold)]',
-    green: 'border-[var(--portfolio-accent-green)]/40 bg-[var(--portfolio-accent-green)]/10 text-[var(--portfolio-accent-green)]',
-    purple: 'border-[var(--portfolio-accent-purple)]/40 bg-[var(--portfolio-accent-purple)]/10 text-[var(--portfolio-accent-purple)]',
+    cyan: 'border-[var(--portfolio-border-bright)] bg-[var(--portfolio-primary-dim)] text-[var(--portfolio-text-primary)]',
+    gold: 'border-[var(--portfolio-border-bright)] bg-[var(--portfolio-bg-elevation-2)] text-[var(--portfolio-text-primary)] font-bold',
+    green: 'border-[var(--portfolio-border-bright)] bg-[var(--portfolio-primary-dim)] text-[var(--portfolio-text-primary)]',
+    purple: 'border-[var(--portfolio-border-bright)] bg-[var(--portfolio-bg-elevation-1)] text-[var(--portfolio-text-primary)]',
     muted: 'border-[var(--portfolio-border)] bg-[var(--portfolio-bg-elevation-1)] text-[var(--portfolio-text-secondary)]',
   }[variant];
 

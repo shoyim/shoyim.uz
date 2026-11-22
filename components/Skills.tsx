@@ -58,7 +58,7 @@ export const Skills: React.FC = () => {
                       {/* Technical Progress Bar */}
                       <div className="w-full h-1.5 bg-[var(--portfolio-bg-elevation-2)] border border-[var(--portfolio-border)] overflow-hidden">
                         <div
-                          className="h-full bg-gradient-to-r from-[var(--portfolio-accent-gold)] to-[var(--portfolio-primary)]"
+                          className="h-full bg-[var(--portfolio-primary)]"
                           style={{ width: `${s.level}%` }}
                         />
                       </div>

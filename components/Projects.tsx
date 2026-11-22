@@ -67,7 +67,7 @@ export const Projects: React.FC = () => {
               key={cat.id}
               onClick={() => setActiveCategory(cat.id)}
               className={`px-4 py-2 font-mono text-xs tracking-wider border rounded-none cursor-pointer transition-all duration-150 ${activeCategory === cat.id
-                ? 'bg-[var(--portfolio-primary)] text-[#0a0d14] dark:text-[#0a0d14] font-bold border-[var(--portfolio-primary)]'
+                ? 'bg-[var(--portfolio-primary)] text-[var(--portfolio-primary-text)] font-bold border-[var(--portfolio-primary)]'
                 : 'bg-[var(--portfolio-bg-paper)] text-[var(--portfolio-text-secondary)] border-[var(--portfolio-border)] hover:border-[var(--portfolio-border-bright)] hover:text-[var(--portfolio-text-primary)]'
                 }`}
             >

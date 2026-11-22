@@ -92,7 +92,7 @@ export const Navbar: React.FC = () => {
             title={theme === 'dark' ? "Yorug' rejimga o'tish (Light Mode)" : "Qorong'i rejimga o'tish (Dark Mode)"}
             aria-label="Toggle theme"
           >
-            {theme === 'dark' ? <Sun className="w-4 h-4 text-[#d8c697]" /> : <Moon className="w-4 h-4 text-[#0969da]" />}
+            {theme === 'dark' ? <Sun className="w-4 h-4 text-[var(--portfolio-text-primary)]" /> : <Moon className="w-4 h-4 text-[var(--portfolio-text-primary)]" />}
           </button>
 
           <a
@@ -124,7 +124,7 @@ export const Navbar: React.FC = () => {
             className="p-2 border border-[var(--portfolio-border)] bg-[var(--portfolio-bg-paper)] text-[var(--portfolio-text-secondary)]"
             aria-label="Toggle theme"
           >
-            {theme === 'dark' ? <Sun className="w-4 h-4 text-[#d8c697]" /> : <Moon className="w-4 h-4 text-[#0969da]" />}
+            {theme === 'dark' ? <Sun className="w-4 h-4 text-[var(--portfolio-text-primary)]" /> : <Moon className="w-4 h-4 text-[var(--portfolio-text-primary)]" />}
           </button>
 
           <button

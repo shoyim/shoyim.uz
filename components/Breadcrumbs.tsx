@@ -13,10 +13,10 @@ interface BreadcrumbsProps {
 
 export const Breadcrumbs: React.FC<BreadcrumbsProps> = ({ items }) => {
   return (
-    <div className="flex items-center gap-2 font-mono text-xs text-[#9caeb8] mb-8 overflow-x-auto py-2">
+    <div className="flex items-center gap-2 font-mono text-xs text-[var(--portfolio-text-secondary)] mb-8 overflow-x-auto py-2">
       <Link
         href="/"
-        className="flex items-center gap-1.5 text-[#93d7e2] hover:text-[#b0e8f0] transition-colors shrink-0"
+        className="flex items-center gap-1.5 text-[var(--portfolio-primary)] hover:opacity-80 transition-opacity shrink-0"
       >
         <Home className="w-3.5 h-3.5" />
         <span>~/root</span>
@@ -24,16 +24,16 @@ export const Breadcrumbs: React.FC<BreadcrumbsProps> = ({ items }) => {
 
       {items.map((item, idx) => (
         <React.Fragment key={idx}>
-          <ChevronRight className="w-3 h-3 text-[#596a75] shrink-0" />
+          <ChevronRight className="w-3 h-3 text-[var(--portfolio-text-muted)] shrink-0" />
           {item.href ? (
             <Link
               href={item.href}
-              className="text-[#9caeb8] hover:text-[#edf1f4] uppercase tracking-wider shrink-0 transition-colors"
+              className="text-[var(--portfolio-text-secondary)] hover:text-[var(--portfolio-text-primary)] uppercase tracking-wider shrink-0 transition-colors"
             >
               {item.label}
             </Link>
           ) : (
-            <span className="text-[#edf1f4] font-bold uppercase tracking-wider shrink-0">
+            <span className="text-[var(--portfolio-text-primary)] font-bold uppercase tracking-wider shrink-0">
               {item.label}
             </span>
           )}

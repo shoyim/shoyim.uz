@@ -29,7 +29,7 @@ export const PortfolioButton: React.FC<ButtonProps> = ({
 
   const variantStyles = {
     primary:
-      'bg-[var(--portfolio-primary)] text-[#0a0d14] dark:text-[#0a0d14] font-semibold border border-[var(--portfolio-primary)] hover:opacity-90 hover:shadow-[0_0_20px_var(--portfolio-primary-glow)] transition-all duration-200 active:scale-[0.98]',
+      'bg-[var(--portfolio-primary)] text-[var(--portfolio-primary-text)] font-semibold border border-[var(--portfolio-primary)] hover:opacity-90 hover:shadow-[0_0_20px_var(--portfolio-primary-glow)] transition-all duration-200 active:scale-[0.98]',
     secondary:
       'bg-[var(--portfolio-bg-elevation-1)] text-[var(--portfolio-text-primary)] border border-[var(--portfolio-border)] hover:border-[var(--portfolio-primary)] hover:bg-[var(--portfolio-bg-elevation-2)] hover:text-[var(--portfolio-primary)] transition-all duration-200 active:scale-[0.98]',
     outline:
