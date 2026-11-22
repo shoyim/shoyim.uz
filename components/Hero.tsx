@@ -5,7 +5,7 @@ import { PORTFOLIO_DATA } from '@/data/portfolio';
 import { PortfolioButton } from './ui/KepButton';
 import { PortfolioCard } from './ui/KepCard';
 import { Badge } from './ui/Badge';
-import { ArrowDown, ArrowUpRight, Code2, Cpu, GitBranch, Terminal } from 'lucide-react';
+import { ArrowDown, ArrowUpRight, Code2, GitBranch, Terminal } from 'lucide-react';
 
 export const Hero: React.FC = () => {
   return (
@@ -38,15 +38,11 @@ export const Hero: React.FC = () => {
               Yuqori yuklamali veb platformalar, keng ko‘lamli API servislar, Telegram ekotizimlari va ochiq kodli paketlar arxitektori.
             </p>
 
-            <div className="p-4 border border-[var(--portfolio-border)] bg-[var(--portfolio-bg-paper)] mb-8 font-mono text-xs text-[var(--portfolio-text-secondary)] flex flex-col gap-1.5 border-l-2 border-l-[var(--portfolio-primary)]">
+            <div className="p-4 border border-[var(--portfolio-border)] bg-[var(--portfolio-bg-paper)] mb-8 font-mono text-xs text-[var(--portfolio-text-secondary)] border-l-2 border-l-[var(--portfolio-primary)]">
               <div className="text-[var(--portfolio-text-primary)] flex items-center gap-2">
                 <Code2 className="w-4 h-4 text-[var(--portfolio-primary)]" />
                 <span className="font-bold">Core Stack:</span>
                 <span>PHP/Laravel • Python/Django • Next.js • PostgreSQL • Docker</span>
-              </div>
-              <div className="flex items-center gap-2 text-[var(--portfolio-text-secondary)]">
-                <Cpu className="w-4 h-4 text-[var(--portfolio-accent-gold)]" />
-                <span>Samarkand State University IT Center • Competitive Programmer</span>
               </div>
             </div>
 
