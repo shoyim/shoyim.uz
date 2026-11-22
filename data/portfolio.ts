@@ -134,7 +134,7 @@ export const PORTFOLIO_DATA = {
       title: 'CP Contest Automation & Parser',
       category: 'opensource',
       categoryLabel: 'Open Source',
-      description: 'Musobaqa dasturchilari uchun masalalarni KEP.uz, RoboContest va Codeforces platformalaridan bir klikda yuklovchi utilita.',
+      description: 'Musobaqa dasturchilari uchun masalalarni RoboContest va Codeforces platformalaridan bir klikda yuklovchi utilita.',
       fullDetails:
         'Terminal orqali ishlovchi yengil skriptlar to‘plami: test ma’lumotlarini avtomatik yuklab, yechim fayllarini mahalliy kompyuterda kompilyatsiya qilib, testlardan o‘tkazadi.',
       technologies: ['Python', 'Bash', 'Competitive Companion API'],
@@ -163,7 +163,7 @@ export const PORTFOLIO_DATA = {
         { name: 'TypeScript & JavaScript', level: 90, note: 'Strict typing, Modern ESNext' },
         { name: 'Next.js 14/15 (App Router)', level: 88, note: 'SSR, Server Actions, SEO' },
         { name: 'Vue.js 3 / Nuxt', level: 85, note: 'Composition API, Pinia, Inertia.js' },
-        { name: 'Tailwind CSS & KEP HUD UI', level: 95, note: 'Design Tokens, Cyber/Dark Themes' },
+        { name: 'Tailwind CSS & HUD Design Systems', level: 95, note: 'Design Tokens, Cyber/Modern Themes' },
       ],
     },
     {

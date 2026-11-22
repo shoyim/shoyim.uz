@@ -1,6 +1,6 @@
 import React from 'react';
 
-interface KepButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: 'primary' | 'secondary' | 'outline' | 'ghost';
   size?: 'sm' | 'md' | 'lg';
   children: React.ReactNode;
@@ -10,7 +10,7 @@ interface KepButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   target?: string;
 }
 
-export const KepButton: React.FC<KepButtonProps> = ({
+export const PortfolioButton: React.FC<ButtonProps> = ({
   variant = 'primary',
   size = 'md',
   children,
@@ -29,13 +29,13 @@ export const KepButton: React.FC<KepButtonProps> = ({
 
   const variantStyles = {
     primary:
-      'bg-[#93d7e2] text-[#0a0d14] font-semibold border border-[#93d7e2] hover:bg-[#b0e8f0] hover:shadow-[0_0_20px_rgba(147,215,226,0.35)] transition-all duration-200 active:scale-[0.98]',
+      'bg-[var(--portfolio-primary)] text-[#0a0d14] dark:text-[#0a0d14] font-semibold border border-[var(--portfolio-primary)] hover:opacity-90 hover:shadow-[0_0_20px_var(--portfolio-primary-glow)] transition-all duration-200 active:scale-[0.98]',
     secondary:
-      'bg-[#131821] text-[#edf1f4] border border-[rgba(255,255,255,0.12)] hover:border-[#93d7e2]/50 hover:bg-[#1c2331] hover:text-[#93d7e2] transition-all duration-200 active:scale-[0.98]',
+      'bg-[var(--portfolio-bg-elevation-1)] text-[var(--portfolio-text-primary)] border border-[var(--portfolio-border)] hover:border-[var(--portfolio-primary)] hover:bg-[var(--portfolio-bg-elevation-2)] hover:text-[var(--portfolio-primary)] transition-all duration-200 active:scale-[0.98]',
     outline:
-      'bg-transparent text-[#93d7e2] border border-[#93d7e2]/60 hover:bg-[#93d7e2]/10 hover:border-[#93d7e2] transition-all duration-200 active:scale-[0.98]',
+      'bg-transparent text-[var(--portfolio-primary)] border border-[var(--portfolio-border-bright)] hover:bg-[var(--portfolio-primary-dim)] hover:border-[var(--portfolio-primary)] transition-all duration-200 active:scale-[0.98]',
     ghost:
-      'bg-transparent text-[#9caeb8] hover:text-[#edf1f4] hover:bg-white/[0.04] transition-all duration-200',
+      'bg-transparent text-[var(--portfolio-text-secondary)] hover:text-[var(--portfolio-text-primary)] hover:bg-[var(--portfolio-bg-elevation-1)] transition-all duration-200',
   }[variant];
 
   const baseClasses = `inline-flex items-center justify-center gap-2 rounded-none uppercase cursor-pointer select-none ${sizeStyles} ${variantStyles} ${className}`;
@@ -56,3 +56,6 @@ export const KepButton: React.FC<KepButtonProps> = ({
     </button>
   );
 };
+
+// Backwards-compatible alias
+export const KepButton = PortfolioButton;

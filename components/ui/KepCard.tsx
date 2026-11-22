@@ -1,6 +1,6 @@
 import React from 'react';
 
-interface KepCardProps {
+interface CardProps {
   children: React.ReactNode;
   className?: string;
   hasCorners?: boolean;
@@ -8,7 +8,7 @@ interface KepCardProps {
   hoverGlow?: boolean;
 }
 
-export const KepCard: React.FC<KepCardProps> = ({
+export const PortfolioCard: React.FC<CardProps> = ({
   children,
   className = '',
   hasCorners = true,
@@ -17,17 +17,22 @@ export const KepCard: React.FC<KepCardProps> = ({
 }) => {
   const cornerClass = hasCorners
     ? accent === 'gold'
-      ? 'kep-hud-corner-gold'
-      : 'kep-hud-corner'
-    : 'border border-[rgba(255,255,255,0.08)] bg-[#0e121a]';
+      ? 'portfolio-hud-corner-gold'
+      : 'portfolio-hud-corner'
+    : 'border border-[var(--portfolio-border)] bg-[var(--portfolio-bg-paper)]';
 
   const glowClass = hoverGlow
-    ? 'hover:border-[#93d7e2]/40 hover:shadow-[0_0_24px_rgba(147,215,226,0.08)] transition-all duration-300'
+    ? 'hover:border-[var(--portfolio-border-bright)] hover:shadow-[0_0_24px_var(--portfolio-primary-dim)] transition-all duration-300'
     : '';
 
   return (
-    <div className={`p-6 relative rounded-none ${cornerClass} ${glowClass} ${className}`}>
+    <div
+      className={`p-6 relative rounded-none text-[var(--portfolio-text-primary)] ${cornerClass} ${glowClass} ${className}`}
+    >
       {children}
     </div>
   );
 };
+
+// Backwards-compatible alias
+export const KepCard = PortfolioCard;

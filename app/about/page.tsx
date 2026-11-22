@@ -25,7 +25,7 @@ export default function AboutPage() {
           {/* Page Title Header */}
           <div className="mb-12">
             <div className="font-mono text-xs text-[#93d7e2] tracking-wider uppercase mb-2">
-              // TELEMETRY & BIO SUMMARY
+              // MEN HAQIMDA
             </div>
             <h1 className="text-3xl sm:text-5xl font-bold font-mono text-[#edf1f4] uppercase tracking-tight">
               Shoyim Obloqulov // Kasbiy Tarix
@@ -120,7 +120,7 @@ export default function AboutPage() {
               <KepCard hasCorners accent="cyan" className="p-6">
                 <div className="flex items-center gap-2 pb-3 mb-4 border-b border-white/[0.08] font-mono text-xs text-[#93d7e2]">
                   <Terminal className="w-4 h-4" />
-                  <span>CORE_SPECS.JSON</span>
+                  <span>TEXNIK KO‘RSATKICHLAR</span>
                 </div>
 
                 <div className="space-y-3 font-mono text-xs text-[#9caeb8]">
@@ -169,8 +169,8 @@ export default function AboutPage() {
 
                   <div className="p-3 border border-white/10 bg-[#131821] flex items-center justify-between">
                     <div>
-                      <div className="text-[#edf1f4] font-bold">KEP.uz</div>
-                      <div className="text-[11px] text-[#9caeb8]">Algoritmik duellar & contest</div>
+                      <div className="text-[#edf1f4] font-bold">Online Judge & Contests</div>
+                      <div className="text-[11px] text-[#9caeb8]">Algoritmik musobaqalar</div>
                     </div>
                     <Badge variant="cyan">Ranked</Badge>
                   </div>

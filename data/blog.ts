@@ -41,7 +41,7 @@ export const BLOG_POSTS: BlogPost[] = [
     tags: ['Python', 'AST', 'Algorithms', 'Anti-Plagiarism', 'Django'],
     featured: true,
     content: {
-      lead: 'Dasturlash musobaqalari va taʼlim tizimlarida (masalan, KEP.uz, RoboContest yoki SamCoding) eng katta muammolardan biri — bu yechimlarni bir-biridan ko‘chirish (plagiat) hisoblanadi. Oddiy string solishtirish yetarli emas, chunki foydalanuvchi o‘zgaruvchilar nomini o‘zgartirishi yoki probellarni qo‘shishi mumkin.',
+      lead: 'Dasturlash musobaqalari va taʼlim tizimlarida (masalan, RoboContest yoki SamCoding) eng katta muammolardan biri — bu yechimlarni bir-biridan ko‘chirish (plagiat) hisoblanadi. Oddiy string solishtirish yetarli emas, chunki foydalanuvchi o‘zgaruvchilar nomini o‘zgartirishi yoki probellarni qo‘shishi mumkin.',
       sections: [
         {
           heading: '1. Muammoning mohiyati va Nega oddiy diff ish bermaydi?',
@@ -146,42 +146,42 @@ class TelegramWebhookController extends Controller
     },
   },
   {
-    slug: 'kep-uz-hud-dizayn-tizimini-nextjs-da-qurish',
-    title: 'KEP.uz HUD va Kiber-Brutalist Dizayn Tizimini Next.js da Qurish Tajribasi',
+    slug: 'hud-kiber-brutalist-dizayn-tizimini-nextjs-da-qurish',
+    title: 'HUD va Kiber-Brutalist Dizayn Tizimini Next.js da Qurish Tajribasi',
     summary:
-      'Qatʼiy 0px chegaralar, 8 segmentli burchak fasetlari (corners), dot-grid matritsalar va yuqori kontrastli qora fon arxitekturasini kodda amalga oshirish sirlari.',
+      'Qatʼiy 0px chegaralar, 8 segmentli burchak fasetlari (corners), dot-grid matritsalar va yuqori kontrastli qora va oq mavzu arxitekturasini kodda amalga oshirish sirlari.',
     category: 'frontend',
     categoryLabel: 'UI / UX Muhandisligi',
     publishedAt: '2026-11-20',
     readTime: '5 daqiqa',
     views: '980',
-    tags: ['Next.js', 'TailwindCSS', 'KEP.uz', 'Design Systems', 'CSS'],
+    tags: ['Next.js', 'TailwindCSS', 'Design Systems', 'CSS', 'UI'],
     featured: false,
     content: {
-      lead: 'Aksariyat zamonaviy veb-saytlar bir xil yumaloq (rounded-xl) va shaffof oq elementlardan foydalanadi. KEP.uz uslubi esa bundan butunlay farq qiladi: u dasturchilar terminali, videoo‘yin HUD interfeysi va yuqori aniqlikdagi muhandislik estetikasini uyg‘unlashtiradi.',
+      lead: 'Aksariyat zamonaviy veb-saytlar bir xil yumaloq (rounded-xl) va shaffof elementlardan foydalanadi. Ushbu uslub esa bundan butunlay farq qiladi: u dasturchilar terminali, videoo‘yin HUD interfeysi va yuqori aniqlikdagi muhandislik estetikasini uyg‘unlashtiradi.',
       sections: [
         {
           heading: '1. Burchak fasetlari (HUD Corners) qanday chiziladi?',
           paragraphs: [
-            'KEP.uz dagi kartochkalar burchaklarida alohida SVG rasmlar emas, balki sof CSS ko‘p qatlamli `linear-gradient` fonlaridan foydalaniladi. Bu brauzer yuklanishini tezlashtiradi va DOM elementlarini minimal ushlab turadi.',
+            'Kartochkalar burchaklarida alohida SVG rasmlar emas, balki sof CSS ko‘p qatlamli `linear-gradient` fonlaridan foydalaniladi. Bu brauzer yuklanishini tezlashtiradi va DOM elementlarini minimal ushlab turadi.',
           ],
           codeSnippet: {
             language: 'css',
             filename: 'hud-corners.css',
-            code: `.kep-hud-corner::before {
+            code: `.portfolio-hud-corner::before {
   content: '';
   position: absolute;
   inset: -1px;
   pointer-events: none;
   background:
-    linear-gradient(90deg, var(--kep-primary), transparent) top left / 24px 1px no-repeat,
-    linear-gradient(180deg, var(--kep-primary), transparent) top left / 1px 24px no-repeat,
-    linear-gradient(270deg, var(--kep-primary), transparent) top right / 24px 1px no-repeat,
-    linear-gradient(180deg, var(--kep-primary), transparent) top right / 1px 24px no-repeat,
-    linear-gradient(90deg, var(--kep-primary), transparent) bottom left / 24px 1px no-repeat,
-    linear-gradient(0deg, var(--kep-primary), transparent) bottom left / 1px 24px no-repeat,
-    linear-gradient(270deg, var(--kep-primary), transparent) bottom right / 24px 1px no-repeat,
-    linear-gradient(0deg, var(--kep-primary), transparent) bottom right / 1px 24px no-repeat;
+    linear-gradient(90deg, var(--portfolio-primary), transparent) top left / 24px 1px no-repeat,
+    linear-gradient(180deg, var(--portfolio-primary), transparent) top left / 1px 24px no-repeat,
+    linear-gradient(270deg, var(--portfolio-primary), transparent) top right / 24px 1px no-repeat,
+    linear-gradient(180deg, var(--portfolio-primary), transparent) top right / 1px 24px no-repeat,
+    linear-gradient(90deg, var(--portfolio-primary), transparent) bottom left / 24px 1px no-repeat,
+    linear-gradient(0deg, var(--portfolio-primary), transparent) bottom left / 1px 24px no-repeat,
+    linear-gradient(270deg, var(--portfolio-primary), transparent) bottom right / 24px 1px no-repeat,
+    linear-gradient(0deg, var(--portfolio-primary), transparent) bottom right / 1px 24px no-repeat;
 }`,
           },
           callout: {

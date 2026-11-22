@@ -2,23 +2,23 @@
 
 import React from 'react';
 import { PORTFOLIO_DATA } from '@/data/portfolio';
-import { KepButton } from './ui/KepButton';
-import { KepCard } from './ui/KepCard';
+import { PortfolioButton } from './ui/KepButton';
+import { PortfolioCard } from './ui/KepCard';
 import { Badge } from './ui/Badge';
 import { ArrowDown, ArrowUpRight, Code2, Cpu, GitBranch, Terminal } from 'lucide-react';
 
 export const Hero: React.FC = () => {
   return (
-    <section id="home" className="relative pt-12 pb-20 md:pt-20 md:pb-32 kep-bg-dots border-b border-white/[0.08] overflow-hidden">
+    <section id="home" className="relative pt-12 pb-20 md:pt-20 md:pb-32 portfolio-bg-dots border-b border-[var(--portfolio-border)] overflow-hidden">
       {/* Background ambient glow */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-[#93d7e2]/[0.03] blur-[120px] pointer-events-none rounded-full" />
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-[var(--portfolio-primary-dim)] blur-[120px] pointer-events-none rounded-full" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Terminal Header Prompt */}
-        <div className="inline-flex items-center gap-2 px-3 py-1.5 border border-white/10 bg-[#0e121a] font-mono text-xs text-[#9caeb8] mb-6">
-          <Terminal className="w-3.5 h-3.5 text-[#93d7e2]" />
+        <div className="inline-flex items-center gap-2 px-3 py-1.5 border border-[var(--portfolio-border)] bg-[var(--portfolio-bg-paper)] font-mono text-xs text-[var(--portfolio-text-secondary)] mb-6">
+          <Terminal className="w-3.5 h-3.5 text-[var(--portfolio-primary)]" />
           <span>shoyim@core:~$ whoami</span>
-          <span className="w-2 h-4 bg-[#93d7e2] animate-cursor inline-block" />
+          <span className="w-2 h-4 bg-[var(--portfolio-primary)] animate-cursor inline-block" />
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
@@ -30,29 +30,29 @@ export const Hero: React.FC = () => {
               <Badge variant="green">Open Source Maintainer</Badge>
             </div>
 
-            <h1 className="text-4xl sm:text-6xl font-bold tracking-tight text-[#edf1f4] uppercase font-mono mb-4 leading-tight">
-              Shoyim <span className="text-[#93d7e2]">Obloqulov</span>
+            <h1 className="text-4xl sm:text-6xl font-bold tracking-tight text-[var(--portfolio-text-primary)] uppercase font-mono mb-4 leading-tight">
+              Shoyim <span className="text-[var(--portfolio-primary)]">Obloqulov</span>
             </h1>
 
-            <p className="text-lg sm:text-xl text-[#9caeb8] font-mono mb-6 leading-relaxed max-w-2xl">
+            <p className="text-lg sm:text-xl text-[var(--portfolio-text-secondary)] font-mono mb-6 leading-relaxed max-w-2xl">
               Yuqori yuklamali veb platformalar, keng ko‘lamli API servislar, Telegram ekotizimlari va ochiq kodli paketlar arxitektori.
             </p>
 
-            <div className="p-4 border border-white/[0.08] bg-[#0e121a]/80 mb-8 font-mono text-xs text-[#9caeb8] flex flex-col gap-1.5 border-l-2 border-l-[#93d7e2]">
-              <div className="text-[#edf1f4] flex items-center gap-2">
-                <Code2 className="w-4 h-4 text-[#93d7e2]" />
+            <div className="p-4 border border-[var(--portfolio-border)] bg-[var(--portfolio-bg-paper)] mb-8 font-mono text-xs text-[var(--portfolio-text-secondary)] flex flex-col gap-1.5 border-l-2 border-l-[var(--portfolio-primary)]">
+              <div className="text-[var(--portfolio-text-primary)] flex items-center gap-2">
+                <Code2 className="w-4 h-4 text-[var(--portfolio-primary)]" />
                 <span className="font-bold">Core Stack:</span>
                 <span>PHP/Laravel • Python/Django • Next.js • PostgreSQL • Docker</span>
               </div>
-              <div className="flex items-center gap-2 text-[#9caeb8]">
-                <Cpu className="w-4 h-4 text-[#d8c697]" />
-                <span>Samarkand State University IT Center • Competitive Programmer (RoboContest / KEP.uz)</span>
+              <div className="flex items-center gap-2 text-[var(--portfolio-text-secondary)]">
+                <Cpu className="w-4 h-4 text-[var(--portfolio-accent-gold)]" />
+                <span>Samarkand State University IT Center • Competitive Programmer</span>
               </div>
             </div>
 
             {/* CTAs */}
             <div className="flex flex-wrap items-center gap-4">
-              <KepButton
+              <PortfolioButton
                 asAnchor
                 href="#projects"
                 size="lg"
@@ -60,20 +60,20 @@ export const Hero: React.FC = () => {
                 icon={<ArrowDown className="w-4 h-4" />}
               >
                 Loyihalarni Ko‘rish
-              </KepButton>
+              </PortfolioButton>
 
-              <KepButton
+              <PortfolioButton
                 asAnchor
                 href={PORTFOLIO_DATA.profile.telegramChannel}
                 target="_blank"
                 size="lg"
                 variant="secondary"
-                icon={<ArrowUpRight className="w-4 h-4 text-[#93d7e2]" />}
+                icon={<ArrowUpRight className="w-4 h-4 text-[var(--portfolio-primary)]" />}
               >
                 Telegram Portfolio (@shoyim_portfolio)
-              </KepButton>
+              </PortfolioButton>
 
-              <KepButton
+              <PortfolioButton
                 asAnchor
                 href={PORTFOLIO_DATA.profile.github}
                 target="_blank"
@@ -82,77 +82,76 @@ export const Hero: React.FC = () => {
                 icon={<GitBranch className="w-4 h-4" />}
               >
                 GitHub Profile
-              </KepButton>
+              </PortfolioButton>
             </div>
           </div>
 
-          {/* Right Column: HUD Interactive Terminal Preview */}
+          {/* Right Column: Terminal Overview */}
           <div className="lg:col-span-5">
-            <KepCard hasCorners accent="cyan" className="p-0 overflow-hidden">
-              {/* Terminal Window Bar */}
-              <div className="flex items-center justify-between px-4 py-2.5 border-b border-white/[0.08] bg-[#131821] text-xs font-mono">
+            <PortfolioCard hasCorners accent="cyan" className="p-0 overflow-hidden">
+              {/* Window Bar */}
+              <div className="flex items-center justify-between px-4 py-2.5 border-b border-[var(--portfolio-border)] bg-[var(--portfolio-bg-elevation-1)] text-xs font-mono">
                 <div className="flex items-center gap-2">
                   <span className="w-2.5 h-2.5 bg-[#ef6f6c] inline-block" />
                   <span className="w-2.5 h-2.5 bg-[#d8c697] inline-block" />
                   <span className="w-2.5 h-2.5 bg-[#28a66a] inline-block" />
-                  <span className="text-[#9caeb8] ml-2">sys_info.sh</span>
+                  <span className="text-[var(--portfolio-text-secondary)] ml-2">profile.sh</span>
                 </div>
-                <span className="text-[#93d7e2] text-[11px]">ARCH: x86_64</span>
               </div>
 
               {/* Terminal Body */}
-              <div className="p-5 font-mono text-xs space-y-3 bg-[#0a0d14]/90 text-[#9caeb8]">
-                <div className="text-[#93d7e2]">
-                  // SHOYIM OBLOQULOV TELEMETRY SYSTEM
+              <div className="p-5 font-mono text-xs space-y-3 bg-[var(--portfolio-bg-default)] text-[var(--portfolio-text-secondary)]">
+                <div className="text-[var(--portfolio-primary)] font-bold">
+                  // SHOYIM OBLOQULOV // OVERVIEW
                 </div>
                 <div>
-                  <span className="text-[#d8c697]">LOCATION:</span> Samarqand, O‘zbekiston
+                  <span className="text-[var(--portfolio-accent-gold)]">LOCATION:</span> Samarqand, O‘zbekiston
                 </div>
                 <div>
-                  <span className="text-[#d8c697]">ROLE:</span> Senior Full-Stack Engineer
+                  <span className="text-[var(--portfolio-accent-gold)]">ROLE:</span> Senior Full-Stack Engineer
                 </div>
                 <div>
-                  <span className="text-[#d8c697]">DOMAIN:</span> https://shoyim.uz
+                  <span className="text-[var(--portfolio-accent-gold)]">DOMAIN:</span> https://shoyim.uz
                 </div>
                 <div>
-                  <span className="text-[#d8c697]">OPEN_SOURCE:</span> github.com/shoyim
+                  <span className="text-[var(--portfolio-accent-gold)]">OPEN_SOURCE:</span> github.com/shoyim
                 </div>
                 <div>
-                  <span className="text-[#d8c697]">TELEGRAM_FEED:</span> t.me/shoyim_portfolio
+                  <span className="text-[var(--portfolio-accent-gold)]">TELEGRAM_FEED:</span> t.me/shoyim_portfolio
                 </div>
-                <div className="pt-2 border-t border-white/[0.08]">
-                  <span className="text-[#28a66a] font-bold">STATUS:</span> [READY FOR ENTERPRISE & ARCHITECTURAL TASKS]
+                <div className="pt-2 border-t border-[var(--portfolio-border)]">
+                  <span className="text-[var(--portfolio-accent-green)] font-bold">FOCUS:</span> [Enterprise Systems & Scalable Architectures]
                 </div>
               </div>
 
-              {/* Bottom Quick Bar */}
-              <div className="grid grid-cols-2 border-t border-white/[0.08] bg-[#131821] text-center font-mono text-[11px] py-2">
-                <div className="border-r border-white/[0.08] text-[#9caeb8]">
-                  ENV: <span className="text-[#edf1f4]">PRODUCTION</span>
+              {/* Bottom Info Bar */}
+              <div className="grid grid-cols-2 border-t border-[var(--portfolio-border)] bg-[var(--portfolio-bg-elevation-1)] text-center font-mono text-[11px] py-2">
+                <div className="border-r border-[var(--portfolio-border)] text-[var(--portfolio-text-secondary)]">
+                  ROLE: <span className="text-[var(--portfolio-text-primary)]">FULL-STACK</span>
                 </div>
-                <div className="text-[#9caeb8]">
-                  UPTIME: <span className="text-[#28a66a]">99.98%</span>
+                <div className="text-[var(--portfolio-text-secondary)]">
+                  EXPERIENCE: <span className="text-[var(--portfolio-accent-green)]">5+ YIL</span>
                 </div>
               </div>
-            </KepCard>
+            </PortfolioCard>
           </div>
         </div>
 
         {/* 4 Key Metrics Cards with Corner Brackets */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-16">
           {PORTFOLIO_DATA.profile.stats.map((stat, idx) => (
-            <KepCard key={idx} hasCorners accent={idx === 0 ? 'cyan' : idx === 1 ? 'gold' : 'cyan'}>
-              <div className="font-mono text-xs text-[#9caeb8] uppercase mb-1">
+            <PortfolioCard key={idx} hasCorners accent={idx === 0 ? 'cyan' : idx === 1 ? 'gold' : 'cyan'}>
+              <div className="font-mono text-xs text-[var(--portfolio-text-secondary)] uppercase mb-1">
                 // {stat.label}
               </div>
-              <div className="text-3xl sm:text-4xl font-bold font-mono text-[#edf1f4] tracking-tight mb-1">
-                <span className="text-[#93d7e2]">{stat.value}</span>{' '}
-                <span className="text-xs font-normal text-[#9caeb8]">{stat.unit}</span>
+              <div className="text-3xl sm:text-4xl font-bold font-mono text-[var(--portfolio-text-primary)] tracking-tight mb-1">
+                <span className="text-[var(--portfolio-primary)]">{stat.value}</span>{' '}
+                <span className="text-xs font-normal text-[var(--portfolio-text-secondary)]">{stat.unit}</span>
               </div>
-              <div className="font-mono text-[11px] text-[#596a75]">
+              <div className="font-mono text-[11px] text-[var(--portfolio-text-muted)]">
                 {stat.detail}
               </div>
-            </KepCard>
+            </PortfolioCard>
           ))}
         </div>
       </div>

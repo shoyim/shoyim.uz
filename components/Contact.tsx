@@ -2,8 +2,8 @@
 
 import React, { useState } from 'react';
 import { PORTFOLIO_DATA } from '@/data/portfolio';
-import { KepCard } from './ui/KepCard';
-import { KepButton } from './ui/KepButton';
+import { PortfolioCard } from './ui/KepCard';
+import { PortfolioButton } from './ui/KepButton';
 import { Badge } from './ui/Badge';
 import { Mail, Send, MapPin, Check, Copy, ArrowUpRight } from 'lucide-react';
 
@@ -20,22 +20,21 @@ export const Contact: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Simulate sending message
     setFormSent(true);
   };
 
   return (
-    <section id="contact" className="py-20 border-b border-white/[0.08] bg-[#0a0d14] relative">
+    <section id="contact" className="py-20 border-b border-[var(--portfolio-border)] bg-[var(--portfolio-bg-default)] relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="mb-14">
-          <div className="font-mono text-xs text-[#93d7e2] tracking-wider uppercase mb-2">
+          <div className="font-mono text-xs text-[var(--portfolio-primary)] tracking-wider uppercase mb-2">
             // 05. BOG‘LANISH VA HAMKORLIK
           </div>
-          <h2 className="text-3xl sm:text-4xl font-bold font-mono text-[#edf1f4] uppercase tracking-tight">
+          <h2 className="text-3xl sm:text-4xl font-bold font-mono text-[var(--portfolio-text-primary)] uppercase tracking-tight">
             Aloqa & Loyihalar Uchun
           </h2>
-          <p className="mt-2 text-[#9caeb8] font-mono text-sm max-w-xl">
+          <p className="mt-2 text-[var(--portfolio-text-secondary)] font-mono text-sm max-w-xl">
             Yangi loyiha, arxitektura maslahati yoki texnik hamkorlik yuzasidan bevosita bog‘laning.
           </p>
         </div>
@@ -43,8 +42,8 @@ export const Contact: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
           {/* Left Column: Direct channels */}
           <div className="lg:col-span-5 space-y-6">
-            <KepCard hasCorners accent="cyan" className="p-6">
-              <div className="font-mono text-xs text-[#93d7e2] uppercase mb-4">
+            <PortfolioCard hasCorners accent="cyan" className="p-6">
+              <div className="font-mono text-xs text-[var(--portfolio-primary)] uppercase mb-4">
                 // TELEGRAM BEVOSITA ALOQA
               </div>
               <div className="space-y-4">
@@ -52,94 +51,94 @@ export const Contact: React.FC = () => {
                   href={PORTFOLIO_DATA.profile.telegramUser}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-4 border border-white/10 bg-[#131821] hover:border-[#93d7e2]/50 flex items-center justify-between gap-3 font-mono transition-all group"
+                  className="p-4 border border-[var(--portfolio-border)] bg-[var(--portfolio-bg-elevation-1)] hover:border-[var(--portfolio-primary)] flex items-center justify-between gap-3 font-mono transition-all group"
                 >
                   <div className="flex items-center gap-3">
-                    <Send className="w-5 h-5 text-[#93d7e2]" />
+                    <Send className="w-5 h-5 text-[var(--portfolio-primary)]" />
                     <div>
-                      <div className="text-xs text-[#edf1f4] font-bold group-hover:text-[#93d7e2]">
+                      <div className="text-xs text-[var(--portfolio-text-primary)] font-bold group-hover:text-[var(--portfolio-primary)]">
                         Shaxsiy Telegram: @shoyim
                       </div>
-                      <div className="text-[11px] text-[#9caeb8]">
+                      <div className="text-[11px] text-[var(--portfolio-text-secondary)]">
                         Tezkor javob olish uchun eng qulay yo‘l
                       </div>
                     </div>
                   </div>
-                  <ArrowUpRight className="w-4 h-4 text-[#9caeb8] group-hover:text-[#93d7e2]" />
+                  <ArrowUpRight className="w-4 h-4 text-[var(--portfolio-text-secondary)] group-hover:text-[var(--portfolio-primary)]" />
                 </a>
 
                 <a
                   href={PORTFOLIO_DATA.profile.telegramChannel}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-4 border border-white/10 bg-[#131821] hover:border-[#d8c697]/50 flex items-center justify-between gap-3 font-mono transition-all group"
+                  className="p-4 border border-[var(--portfolio-border)] bg-[var(--portfolio-bg-elevation-1)] hover:border-[var(--portfolio-accent-gold)] flex items-center justify-between gap-3 font-mono transition-all group"
                 >
                   <div className="flex items-center gap-3">
-                    <Send className="w-5 h-5 text-[#d8c697]" />
+                    <Send className="w-5 h-5 text-[var(--portfolio-accent-gold)]" />
                     <div>
-                      <div className="text-xs text-[#edf1f4] font-bold group-hover:text-[#d8c697]">
+                      <div className="text-xs text-[var(--portfolio-text-primary)] font-bold group-hover:text-[var(--portfolio-accent-gold)]">
                         Portfolio Kanali: @shoyim_portfolio
                       </div>
-                      <div className="text-[11px] text-[#9caeb8]">
+                      <div className="text-[11px] text-[var(--portfolio-text-secondary)]">
                         Barcha yangi ishlar va case study-lar
                       </div>
                     </div>
                   </div>
-                  <ArrowUpRight className="w-4 h-4 text-[#9caeb8] group-hover:text-[#d8c697]" />
+                  <ArrowUpRight className="w-4 h-4 text-[var(--portfolio-text-secondary)] group-hover:text-[var(--portfolio-accent-gold)]" />
                 </a>
               </div>
-            </KepCard>
+            </PortfolioCard>
 
-            <KepCard hasCorners accent="gold" className="p-6">
-              <div className="font-mono text-xs text-[#d8c697] uppercase mb-2">
+            <PortfolioCard hasCorners accent="gold" className="p-6">
+              <div className="font-mono text-xs text-[var(--portfolio-accent-gold)] uppercase mb-2">
                 // ELEKTRON POCHTA
               </div>
-              <div className="flex items-center justify-between p-3 border border-white/10 bg-[#131821] font-mono text-xs">
-                <div className="flex items-center gap-2 text-[#edf1f4]">
-                  <Mail className="w-4 h-4 text-[#d8c697]" />
+              <div className="flex items-center justify-between p-3 border border-[var(--portfolio-border)] bg-[var(--portfolio-bg-elevation-1)] font-mono text-xs">
+                <div className="flex items-center gap-2 text-[var(--portfolio-text-primary)]">
+                  <Mail className="w-4 h-4 text-[var(--portfolio-accent-gold)]" />
                   <span>{PORTFOLIO_DATA.profile.email}</span>
                 </div>
                 <button
                   onClick={handleCopyEmail}
-                  className="px-2.5 py-1 text-[11px] border border-white/10 text-[#9caeb8] hover:text-[#edf1f4] flex items-center gap-1 cursor-pointer"
+                  className="px-2.5 py-1 text-[11px] border border-[var(--portfolio-border)] text-[var(--portfolio-text-secondary)] hover:text-[var(--portfolio-text-primary)] flex items-center gap-1 cursor-pointer"
                 >
-                  {copied ? <Check className="w-3 h-3 text-[#28a66a]" /> : <Copy className="w-3 h-3" />}
+                  {copied ? <Check className="w-3 h-3 text-[var(--portfolio-accent-green)]" /> : <Copy className="w-3 h-3" />}
                   <span>{copied ? 'NUSXA OLINDI' : 'NUSXA OLISH'}</span>
                 </button>
               </div>
 
-              <div className="mt-4 pt-4 border-t border-white/[0.06] flex items-center gap-2 font-mono text-xs text-[#9caeb8]">
-                <MapPin className="w-3.5 h-3.5 text-[#93d7e2]" />
+              <div className="mt-4 pt-4 border-t border-[var(--portfolio-border)] flex items-center gap-2 font-mono text-xs text-[var(--portfolio-text-secondary)]">
+                <MapPin className="w-3.5 h-3.5 text-[var(--portfolio-primary)]" />
                 <span>Samarqand, O‘zbekiston (UTC+5)</span>
               </div>
-            </KepCard>
+            </PortfolioCard>
           </div>
 
-          {/* Right Column: Fast Contact Form */}
+          {/* Right Column: Contact Form */}
           <div className="lg:col-span-7">
-            <KepCard hasCorners accent="cyan" className="p-8">
-              <div className="flex items-center justify-between mb-6 pb-3 border-b border-white/[0.08] font-mono text-xs">
-                <span className="text-[#93d7e2]">// XABAR YUBORISH (MESSAGE_DISPATCH)</span>
-                <Badge variant="cyan">STATUS: READY</Badge>
+            <PortfolioCard hasCorners accent="cyan" className="p-8">
+              <div className="flex items-center justify-between mb-6 pb-3 border-b border-[var(--portfolio-border)] font-mono text-xs">
+                <span className="text-[var(--portfolio-primary)] font-bold">// XABAR YUBORISH</span>
+                <Badge variant="cyan">ALOQA</Badge>
               </div>
 
               {formSent ? (
-                <div className="p-8 text-center font-mono space-y-3 bg-[#131821] border border-[#28a66a]/40">
-                  <div className="w-10 h-10 mx-auto rounded-full bg-[#28a66a]/20 border border-[#28a66a] flex items-center justify-center text-[#28a66a]">
+                <div className="p-8 text-center font-mono space-y-3 bg-[var(--portfolio-bg-elevation-1)] border border-[var(--portfolio-accent-green)]/40">
+                  <div className="w-10 h-10 mx-auto bg-[var(--portfolio-accent-green)]/20 border border-[var(--portfolio-accent-green)] flex items-center justify-center text-[var(--portfolio-accent-green)]">
                     <Check className="w-5 h-5" />
                   </div>
-                  <div className="text-base font-bold text-[#edf1f4]">XABAR QABUL QILINDI!</div>
-                  <p className="text-xs text-[#9caeb8]">
+                  <div className="text-base font-bold text-[var(--portfolio-text-primary)]">XABAR QABUL QILINDI!</div>
+                  <p className="text-xs text-[var(--portfolio-text-secondary)]">
                     Xabaringiz uchun rahmat. Tez orada siz ko‘rsatgan aloqa orqali javob qaytaraman.
                   </p>
-                  <KepButton size="sm" variant="outline" onClick={() => setFormSent(false)}>
+                  <PortfolioButton size="sm" variant="outline" onClick={() => setFormSent(false)}>
                     Yangi xabar yozish
-                  </KepButton>
+                  </PortfolioButton>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-5 font-mono text-xs">
                   <div>
-                    <label className="block text-[#9caeb8] uppercase mb-1.5">
+                    <label className="block text-[var(--portfolio-text-secondary)] uppercase mb-1.5">
                       Ismingiz yoki Kompaniya nomi:
                     </label>
                     <input
@@ -148,12 +147,12 @@ export const Contact: React.FC = () => {
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                       placeholder="Masalan: Azizbek / Tech Company"
-                      className="w-full px-4 py-3 bg-[#131821] border border-white/10 text-[#edf1f4] focus:outline-none focus:border-[#93d7e2] transition-colors"
+                      className="w-full px-4 py-3 bg-[var(--portfolio-bg-elevation-1)] border border-[var(--portfolio-border)] text-[var(--portfolio-text-primary)] focus:outline-none focus:border-[var(--portfolio-primary)] transition-colors"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-[#9caeb8] uppercase mb-1.5">
+                    <label className="block text-[var(--portfolio-text-secondary)] uppercase mb-1.5">
                       Aloqa vositasi (Telegram username yoki Telefon / Email):
                     </label>
                     <input
@@ -162,12 +161,12 @@ export const Contact: React.FC = () => {
                       value={formData.contact}
                       onChange={(e) => setFormData({ ...formData, contact: e.target.value })}
                       placeholder="@username yoki +998 90 ..."
-                      className="w-full px-4 py-3 bg-[#131821] border border-white/10 text-[#edf1f4] focus:outline-none focus:border-[#93d7e2] transition-colors"
+                      className="w-full px-4 py-3 bg-[var(--portfolio-bg-elevation-1)] border border-[var(--portfolio-border)] text-[var(--portfolio-text-primary)] focus:outline-none focus:border-[var(--portfolio-primary)] transition-colors"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-[#9caeb8] uppercase mb-1.5">
+                    <label className="block text-[var(--portfolio-text-secondary)] uppercase mb-1.5">
                       Loyiha yoki Xabar mazmuni:
                     </label>
                     <textarea
@@ -176,16 +175,16 @@ export const Contact: React.FC = () => {
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                       placeholder="Loyiha talablari, vazifasi va muddatlari haqida qisqacha yozing..."
-                      className="w-full px-4 py-3 bg-[#131821] border border-white/10 text-[#edf1f4] focus:outline-none focus:border-[#93d7e2] transition-colors resize-none"
+                      className="w-full px-4 py-3 bg-[var(--portfolio-bg-elevation-1)] border border-[var(--portfolio-border)] text-[var(--portfolio-text-primary)] focus:outline-none focus:border-[var(--portfolio-primary)] transition-colors resize-none"
                     />
                   </div>
 
-                  <KepButton type="submit" size="md" variant="primary" icon={<Send className="w-4 h-4" />}>
+                  <PortfolioButton type="submit" size="md" variant="primary" icon={<Send className="w-4 h-4" />}>
                     Xabarni Yuborish
-                  </KepButton>
+                  </PortfolioButton>
                 </form>
               )}
-            </KepCard>
+            </PortfolioCard>
           </div>
         </div>
       </div>

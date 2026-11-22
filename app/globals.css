@@ -1,37 +1,62 @@
 @import "tailwindcss";
 
 :root {
-  --kep-bg-default: #0a0d14;
-  --kep-bg-paper: #0e121a;
-  --kep-bg-elevation-1: #131821;
-  --kep-bg-elevation-2: #1c2331;
-  --kep-bg-elevation-3: #283142;
-  --kep-text-primary: #edf1f4;
-  --kep-text-secondary: #9caeb8;
-  --kep-text-muted: #596a75;
-  --kep-primary: #93d7e2;
-  --kep-primary-dim: rgba(147, 215, 226, 0.15);
-  --kep-primary-glow: rgba(147, 215, 226, 0.35);
-  --kep-accent-gold: #d8c697;
-  --kep-accent-green: #28a66a;
-  --kep-accent-purple: #bd93f9;
-  --kep-border: rgba(255, 255, 255, 0.08);
-  --kep-border-bright: rgba(147, 215, 226, 0.3);
+  /* Dark Theme by default */
+  --portfolio-bg-default: #0a0d14;
+  --portfolio-bg-paper: #0e121a;
+  --portfolio-bg-elevation-1: #131821;
+  --portfolio-bg-elevation-2: #1c2331;
+  --portfolio-bg-elevation-3: #283142;
+  --portfolio-text-primary: #edf1f4;
+  --portfolio-text-secondary: #9caeb8;
+  --portfolio-text-muted: #596a75;
+  --portfolio-primary: #93d7e2;
+  --portfolio-primary-dim: rgba(147, 215, 226, 0.12);
+  --portfolio-primary-glow: rgba(147, 215, 226, 0.3);
+  --portfolio-accent-gold: #d8c697;
+  --portfolio-accent-green: #28a66a;
+  --portfolio-accent-purple: #bd93f9;
+  --portfolio-border: rgba(255, 255, 255, 0.08);
+  --portfolio-border-bright: rgba(147, 215, 226, 0.3);
+  --portfolio-dot-color: rgba(147, 215, 226, 0.12);
+  --portfolio-grid-color: rgba(255, 255, 255, 0.04);
+}
+
+/* Light Theme Variables */
+:root[data-theme='light'] {
+  --portfolio-bg-default: #f6f8fa;
+  --portfolio-bg-paper: #ffffff;
+  --portfolio-bg-elevation-1: #f0f3f6;
+  --portfolio-bg-elevation-2: #e5e9ee;
+  --portfolio-bg-elevation-3: #d8dee4;
+  --portfolio-text-primary: #1f2328;
+  --portfolio-text-secondary: #57606a;
+  --portfolio-text-muted: #8c959f;
+  --portfolio-primary: #0969da;
+  --portfolio-primary-dim: rgba(9, 105, 218, 0.08);
+  --portfolio-primary-glow: rgba(9, 105, 218, 0.2);
+  --portfolio-accent-gold: #9a6700;
+  --portfolio-accent-green: #1a7f37;
+  --portfolio-accent-purple: #8250df;
+  --portfolio-border: rgba(31, 35, 40, 0.12);
+  --portfolio-border-bright: rgba(9, 105, 218, 0.35);
+  --portfolio-dot-color: rgba(9, 105, 218, 0.1);
+  --portfolio-grid-color: rgba(31, 35, 40, 0.05);
 }
 
 @theme inline {
-  --color-kep-bg: var(--kep-bg-default);
-  --color-kep-paper: var(--kep-bg-paper);
-  --color-kep-elevation-1: var(--kep-bg-elevation-1);
-  --color-kep-elevation-2: var(--kep-bg-elevation-2);
-  --color-kep-elevation-3: var(--kep-bg-elevation-3);
-  --color-kep-primary: var(--kep-primary);
-  --color-kep-gold: var(--kep-accent-gold);
-  --color-kep-green: var(--kep-accent-green);
-  --color-kep-purple: var(--kep-accent-purple);
-  --color-kep-text: var(--kep-text-primary);
-  --color-kep-secondary: var(--kep-text-secondary);
-  --color-kep-border: var(--kep-border);
+  --color-portfolio-bg: var(--portfolio-bg-default);
+  --color-portfolio-paper: var(--portfolio-bg-paper);
+  --color-portfolio-elevation-1: var(--portfolio-bg-elevation-1);
+  --color-portfolio-elevation-2: var(--portfolio-bg-elevation-2);
+  --color-portfolio-elevation-3: var(--portfolio-bg-elevation-3);
+  --color-portfolio-primary: var(--portfolio-primary);
+  --color-portfolio-gold: var(--portfolio-accent-gold);
+  --color-portfolio-green: var(--portfolio-accent-green);
+  --color-portfolio-purple: var(--portfolio-accent-purple);
+  --color-portfolio-text: var(--portfolio-text-primary);
+  --color-portfolio-secondary: var(--portfolio-text-secondary);
+  --color-portfolio-border: var(--portfolio-border);
   --font-sans: var(--font-sans);
   --font-mono: var(--font-mono);
 }
@@ -41,12 +66,13 @@
 }
 
 html, body {
-  background-color: var(--kep-bg-default);
-  color: var(--kep-text-primary);
+  background-color: var(--portfolio-bg-default);
+  color: var(--portfolio-text-primary);
   font-family: var(--font-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   scroll-behavior: smooth;
   margin: 0;
   padding: 0;
+  transition: background-color 200ms ease, color 200ms ease;
 }
 
 /* Custom Sleek Scrollbar */
@@ -55,88 +81,95 @@ html, body {
   height: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #0a0d14;
+  background: var(--portfolio-bg-default);
 }
 ::-webkit-scrollbar-thumb {
-  background: #1c2331;
+  background: var(--portfolio-bg-elevation-2);
   border-radius: 0px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--kep-primary);
+  background: var(--portfolio-primary);
 }
 
 /* Selection Highlight */
 ::selection {
-  background: rgba(147, 215, 226, 0.25);
-  color: #ffffff;
+  background: var(--portfolio-primary-glow);
+  color: inherit;
 }
 
-/* KEP.uz Dots Grid Pattern */
+/* Dots Grid Pattern */
+.portfolio-bg-dots,
 .kep-bg-dots {
   background-image: 
-    radial-gradient(circle, rgba(147, 215, 226, 0.12) 1.25px, transparent 1.25px),
-    radial-gradient(circle at 85% 15%, rgba(147, 215, 226, 0.08) 0, transparent 35%);
+    radial-gradient(circle, var(--portfolio-dot-color) 1.25px, transparent 1.25px),
+    radial-gradient(circle at 85% 15%, var(--portfolio-primary-dim) 0, transparent 35%);
   background-size: 20px 20px, auto;
 }
 
-/* KEP.uz Technical Line Grid */
+/* Technical Line Grid */
+.portfolio-bg-grid,
 .kep-bg-grid {
   background-image: 
-    linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+    linear-gradient(var(--portfolio-grid-color) 1px, transparent 1px),
+    linear-gradient(90deg, var(--portfolio-grid-color) 1px, transparent 1px);
   background-size: 32px 32px;
 }
 
-/* KEP.uz Exact HUD Corners Component Effect */
+/* HUD Corners Component Effect */
+.portfolio-hud-corner,
 .kep-hud-corner {
   position: relative;
-  border: 1px solid var(--kep-border);
-  background-color: var(--kep-bg-paper);
+  border: 1px solid var(--portfolio-border);
+  background-color: var(--portfolio-bg-paper);
 }
 
+.portfolio-hud-corner::before,
 .kep-hud-corner::before {
   content: '';
   position: absolute;
   inset: -1px;
   pointer-events: none;
   background:
-    linear-gradient(90deg, var(--kep-primary), transparent) top left / 24px 1px no-repeat,
-    linear-gradient(180deg, var(--kep-primary), transparent) top left / 1px 24px no-repeat,
-    linear-gradient(270deg, var(--kep-primary), transparent) top right / 24px 1px no-repeat,
-    linear-gradient(180deg, var(--kep-primary), transparent) top right / 1px 24px no-repeat,
-    linear-gradient(90deg, var(--kep-primary), transparent) bottom left / 24px 1px no-repeat,
-    linear-gradient(0deg, var(--kep-primary), transparent) bottom left / 1px 24px no-repeat,
-    linear-gradient(270deg, var(--kep-primary), transparent) bottom right / 24px 1px no-repeat,
-    linear-gradient(0deg, var(--kep-primary), transparent) bottom right / 1px 24px no-repeat;
+    linear-gradient(90deg, var(--portfolio-primary), transparent) top left / 24px 1px no-repeat,
+    linear-gradient(180deg, var(--portfolio-primary), transparent) top left / 1px 24px no-repeat,
+    linear-gradient(270deg, var(--portfolio-primary), transparent) top right / 24px 1px no-repeat,
+    linear-gradient(180deg, var(--portfolio-primary), transparent) top right / 1px 24px no-repeat,
+    linear-gradient(90deg, var(--portfolio-primary), transparent) bottom left / 24px 1px no-repeat,
+    linear-gradient(0deg, var(--portfolio-primary), transparent) bottom left / 1px 24px no-repeat,
+    linear-gradient(270deg, var(--portfolio-primary), transparent) bottom right / 24px 1px no-repeat,
+    linear-gradient(0deg, var(--portfolio-primary), transparent) bottom right / 1px 24px no-repeat;
 }
 
 /* Gold Accent HUD Corner for Special Badges */
+.portfolio-hud-corner-gold,
 .kep-hud-corner-gold {
   position: relative;
-  border: 1px solid rgba(216, 198, 151, 0.2);
-  background-color: var(--kep-bg-paper);
+  border: 1px solid var(--portfolio-accent-gold);
+  background-color: var(--portfolio-bg-paper);
 }
 
+.portfolio-hud-corner-gold::before,
 .kep-hud-corner-gold::before {
   content: '';
   position: absolute;
   inset: -1px;
   pointer-events: none;
   background:
-    linear-gradient(90deg, var(--kep-accent-gold), transparent) top left / 20px 1px no-repeat,
-    linear-gradient(180deg, var(--kep-accent-gold), transparent) top left / 1px 20px no-repeat,
-    linear-gradient(270deg, var(--kep-accent-gold), transparent) top right / 20px 1px no-repeat,
-    linear-gradient(180deg, var(--kep-accent-gold), transparent) top right / 1px 20px no-repeat,
-    linear-gradient(90deg, var(--kep-accent-gold), transparent) bottom left / 20px 1px no-repeat,
-    linear-gradient(0deg, var(--kep-accent-gold), transparent) bottom left / 1px 20px no-repeat,
-    linear-gradient(270deg, var(--kep-accent-gold), transparent) bottom right / 20px 1px no-repeat,
-    linear-gradient(0deg, var(--kep-accent-gold), transparent) bottom right / 1px 20px no-repeat;
+    linear-gradient(90deg, var(--portfolio-accent-gold), transparent) top left / 20px 1px no-repeat,
+    linear-gradient(180deg, var(--portfolio-accent-gold), transparent) top left / 1px 20px no-repeat,
+    linear-gradient(270deg, var(--portfolio-accent-gold), transparent) top right / 20px 1px no-repeat,
+    linear-gradient(180deg, var(--portfolio-accent-gold), transparent) top right / 1px 20px no-repeat,
+    linear-gradient(90deg, var(--portfolio-accent-gold), transparent) bottom left / 20px 1px no-repeat,
+    linear-gradient(0deg, var(--portfolio-accent-gold), transparent) bottom left / 1px 20px no-repeat,
+    linear-gradient(270deg, var(--portfolio-accent-gold), transparent) bottom right / 20px 1px no-repeat,
+    linear-gradient(0deg, var(--portfolio-accent-gold), transparent) bottom right / 1px 20px no-repeat;
 }
 
 /* Top Glow Line */
+.portfolio-top-line,
 .kep-top-line {
   height: 2px;
-  background: linear-gradient(90deg, transparent, var(--kep-accent-gold), var(--kep-primary), transparent);
+  background: linear-gradient(90deg, transparent, var(--portfolio-accent-gold), var(--portfolio-primary), transparent);
 }
 
 /* Blinking cursor animation */

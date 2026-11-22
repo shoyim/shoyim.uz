@@ -1,16 +1,41 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { PORTFOLIO_DATA } from '@/data/portfolio';
-import { KepButton } from './ui/KepButton';
-import { Terminal, Send, Menu, X, ArrowUpRight } from 'lucide-react';
+import { PortfolioButton } from './ui/KepButton';
+import { Terminal, Send, Menu, X, ArrowUpRight, Sun, Moon } from 'lucide-react';
 import { GithubIcon } from './ui/Icons';
 
 export const Navbar: React.FC = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [theme, setTheme] = useState<'dark' | 'light'>('dark');
   const pathname = usePathname();
+
+  useEffect(() => {
+    const savedTheme = localStorage.getItem('portfolio-theme') as 'dark' | 'light' | null;
+    const initialTheme = savedTheme || 'dark';
+    setTheme(initialTheme);
+    document.documentElement.setAttribute('data-theme', initialTheme);
+    if (initialTheme === 'dark') {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  }, []);
+
+  const toggleTheme = () => {
+    const nextTheme = theme === 'dark' ? 'light' : 'dark';
+    setTheme(nextTheme);
+    document.documentElement.setAttribute('data-theme', nextTheme);
+    localStorage.setItem('portfolio-theme', nextTheme);
+    if (nextTheme === 'dark') {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  };
 
   const navLinks = [
     { href: '/', num: '01', label: 'Asosiy' },
@@ -21,25 +46,19 @@ export const Navbar: React.FC = () => {
   ];
 
   return (
-    <header className="sticky top-0 z-40 w-full border-b border-white/[0.08] bg-[#0a0d14]/90 backdrop-blur-md">
+    <header className="sticky top-0 z-40 w-full border-b border-[var(--portfolio-border)] bg-[var(--portfolio-bg-default)]/90 backdrop-blur-md">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-        {/* Brand / Monogram */}
-        <div className="flex items-center gap-4">
+        {/* Brand */}
+        <div className="flex items-center gap-3">
           <Link
             href="/"
-            className="flex items-center gap-2 text-sm sm:text-base font-mono font-bold tracking-wider text-[#edf1f4] hover:text-[#93d7e2] transition-colors"
+            className="flex items-center gap-2 text-sm sm:text-base font-mono font-bold tracking-wider text-[var(--portfolio-text-primary)] hover:text-[var(--portfolio-primary)] transition-colors"
           >
-            <span className="inline-flex items-center justify-center w-7 h-7 bg-[#131821] border border-[#93d7e2]/40 text-[#93d7e2]">
+            <span className="inline-flex items-center justify-center w-7 h-7 bg-[var(--portfolio-bg-elevation-1)] border border-[var(--portfolio-border-bright)] text-[var(--portfolio-primary)]">
               <Terminal className="w-4 h-4" />
             </span>
             <span>SHOYIM.UZ</span>
           </Link>
-
-          {/* System Status Pill */}
-          <div className="hidden lg:flex items-center gap-2 px-2.5 py-1 text-[11px] font-mono border border-white/[0.08] bg-[#0e121a] text-[#9caeb8]">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#28a66a] animate-pulse" />
-            <span>CORE: ONLINE // AVAILABLE</span>
-          </div>
         </div>
 
         {/* Desktop Nav Links */}
@@ -52,29 +71,40 @@ export const Navbar: React.FC = () => {
                 href={item.href}
                 className={`px-3 py-1.5 border transition-all duration-150 ${
                   isActive
-                    ? 'border-[#93d7e2]/40 bg-[#93d7e2]/10 text-[#93d7e2]'
-                    : 'text-[#9caeb8] hover:text-[#edf1f4] hover:bg-white/[0.04] border-transparent hover:border-white/10'
+                    ? 'border-[var(--portfolio-border-bright)] bg-[var(--portfolio-primary-dim)] text-[var(--portfolio-primary)] font-bold'
+                    : 'text-[var(--portfolio-text-secondary)] hover:text-[var(--portfolio-text-primary)] hover:bg-[var(--portfolio-bg-elevation-1)] border-transparent hover:border-[var(--portfolio-border)]'
                 }`}
               >
-                <span className="text-[#93d7e2]/60 mr-1.5">{item.num}</span>
+                <span className="text-[var(--portfolio-primary)] opacity-70 mr-1.5">{item.num}</span>
                 {item.label}
               </Link>
             );
           })}
         </nav>
 
-        {/* Action Buttons */}
-        <div className="hidden sm:flex items-center gap-2">
+        {/* Action Buttons & Theme Switcher */}
+        <div className="hidden sm:flex items-center gap-2.5">
+          {/* Theme Toggle Button */}
+          <button
+            onClick={toggleTheme}
+            className="p-2 border border-[var(--portfolio-border)] bg-[var(--portfolio-bg-paper)] text-[var(--portfolio-text-secondary)] hover:text-[var(--portfolio-primary)] hover:border-[var(--portfolio-primary)] transition-colors cursor-pointer"
+            title={theme === 'dark' ? "Yorug' rejimga o'tish (Light Mode)" : "Qorong'i rejimga o'tish (Dark Mode)"}
+            aria-label="Toggle theme"
+          >
+            {theme === 'dark' ? <Sun className="w-4 h-4 text-[#d8c697]" /> : <Moon className="w-4 h-4 text-[#0969da]" />}
+          </button>
+
           <a
             href={PORTFOLIO_DATA.profile.github}
             target="_blank"
             rel="noopener noreferrer"
-            className="p-2 border border-white/[0.08] bg-[#0e121a] text-[#9caeb8] hover:text-[#edf1f4] hover:border-[#93d7e2]/40 transition-colors"
+            className="p-2 border border-[var(--portfolio-border)] bg-[var(--portfolio-bg-paper)] text-[var(--portfolio-text-secondary)] hover:text-[var(--portfolio-text-primary)] hover:border-[var(--portfolio-border-bright)] transition-colors"
             title="GitHub Profile"
           >
             <GithubIcon className="w-4 h-4" />
           </a>
-          <KepButton
+
+          <PortfolioButton
             asAnchor
             href={PORTFOLIO_DATA.profile.telegramChannel}
             target="_blank"
@@ -83,14 +113,22 @@ export const Navbar: React.FC = () => {
             icon={<ArrowUpRight className="w-3.5 h-3.5" />}
           >
             Telegram // Portfolio
-          </KepButton>
+          </PortfolioButton>
         </div>
 
         {/* Mobile menu trigger */}
         <div className="flex sm:hidden items-center gap-2">
           <button
+            onClick={toggleTheme}
+            className="p-2 border border-[var(--portfolio-border)] bg-[var(--portfolio-bg-paper)] text-[var(--portfolio-text-secondary)]"
+            aria-label="Toggle theme"
+          >
+            {theme === 'dark' ? <Sun className="w-4 h-4 text-[#d8c697]" /> : <Moon className="w-4 h-4 text-[#0969da]" />}
+          </button>
+
+          <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="p-2 border border-white/10 bg-[#0e121a] text-[#edf1f4]"
+            className="p-2 border border-[var(--portfolio-border)] bg-[var(--portfolio-bg-paper)] text-[var(--portfolio-text-primary)]"
             aria-label="Toggle menu"
           >
             {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -100,20 +138,20 @@ export const Navbar: React.FC = () => {
 
       {/* Mobile Menu Dropdown */}
       {mobileMenuOpen && (
-        <div className="sm:hidden border-b border-white/[0.08] bg-[#0e121a] px-4 pt-3 pb-6 flex flex-col gap-3 font-mono text-sm">
+        <div className="sm:hidden border-b border-[var(--portfolio-border)] bg-[var(--portfolio-bg-paper)] px-4 pt-3 pb-6 flex flex-col gap-3 font-mono text-sm">
           {navLinks.map((item) => (
             <Link
               key={item.href}
               href={item.href}
               onClick={() => setMobileMenuOpen(false)}
-              className="px-3 py-2 text-[#9caeb8] hover:text-[#edf1f4] hover:bg-white/[0.04] border-l-2 border-transparent hover:border-[#93d7e2]"
+              className="px-3 py-2 text-[var(--portfolio-text-secondary)] hover:text-[var(--portfolio-text-primary)] hover:bg-[var(--portfolio-bg-elevation-1)] border-l-2 border-transparent hover:border-[var(--portfolio-primary)]"
             >
-              <span className="text-[#93d7e2] mr-2">{item.num} //</span>
+              <span className="text-[var(--portfolio-primary)] mr-2">{item.num} //</span>
               {item.label}
             </Link>
           ))}
-          <div className="pt-2 border-t border-white/[0.08] flex flex-col gap-2">
-            <KepButton
+          <div className="pt-2 border-t border-[var(--portfolio-border)] flex flex-col gap-2">
+            <PortfolioButton
               asAnchor
               href={PORTFOLIO_DATA.profile.telegramChannel}
               target="_blank"
@@ -122,7 +160,7 @@ export const Navbar: React.FC = () => {
               icon={<Send className="w-3.5 h-3.5" />}
             >
               Telegram Kanal (@shoyim_portfolio)
-            </KepButton>
+            </PortfolioButton>
           </div>
         </div>
       )}

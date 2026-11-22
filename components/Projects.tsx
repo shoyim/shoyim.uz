@@ -2,8 +2,8 @@
 
 import React, { useState } from 'react';
 import { PORTFOLIO_DATA, Project } from '@/data/portfolio';
-import { KepCard } from './ui/KepCard';
-import { KepButton } from './ui/KepButton';
+import { PortfolioCard } from './ui/KepCard';
+import { PortfolioButton } from './ui/KepButton';
 import { Badge } from './ui/Badge';
 import { ArrowUpRight, FolderGit2, Send, Star } from 'lucide-react';
 import { GithubIcon } from './ui/Icons';
@@ -26,50 +26,50 @@ export const Projects: React.FC = () => {
       : PORTFOLIO_DATA.projects.filter((p) => p.category === activeCategory);
 
   return (
-    <section id="projects" className="py-20 border-b border-white/[0.08] bg-[#0a0d14] relative kep-bg-dots">
+    <section id="projects" className="py-20 border-b border-[var(--portfolio-border)] bg-[var(--portfolio-bg-default)] relative portfolio-bg-dots">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
           <div>
-            <div className="font-mono text-xs text-[#93d7e2] tracking-wider uppercase mb-2">
+            <div className="font-mono text-xs text-[var(--portfolio-primary)] tracking-wider uppercase mb-2">
               // 03. PORTFOLIO & REPOZITORIYLAR
             </div>
-            <h2 className="text-3xl sm:text-4xl font-bold font-mono text-[#edf1f4] uppercase tracking-tight">
+            <h2 className="text-3xl sm:text-4xl font-bold font-mono text-[var(--portfolio-text-primary)] uppercase tracking-tight">
               Amalga Oshirilgan Loyihalar
             </h2>
-            <p className="mt-2 text-[#9caeb8] font-mono text-sm max-w-xl">
-              Telegram kanaldagi (<a href={PORTFOLIO_DATA.profile.telegramChannel} target="_blank" rel="noopener noreferrer" className="text-[#93d7e2] underline hover:text-[#b0e8f0]">@shoyim_portfolio</a>) real ishlardan saralangan loyihalar va ochiq kodli paketlar.
+            <p className="mt-2 text-[var(--portfolio-text-secondary)] font-mono text-sm max-w-xl">
+              Telegram kanaldagi (<a href={PORTFOLIO_DATA.profile.telegramChannel} target="_blank" rel="noopener noreferrer" className="text-[var(--portfolio-primary)] underline hover:opacity-80">@shoyim_portfolio</a>) real ishlardan saralangan loyihalar va ochiq kodli paketlar.
             </p>
           </div>
 
           {/* Telegram Channel Live Banner */}
-          <KepCard hasCorners={false} className="py-3 px-4 border border-[#93d7e2]/30 bg-[#131821] flex items-center gap-3">
-            <Send className="w-5 h-5 text-[#93d7e2] shrink-0" />
+          <PortfolioCard hasCorners={false} className="py-3 px-4 border border-[var(--portfolio-border-bright)] bg-[var(--portfolio-bg-elevation-1)] flex items-center gap-3">
+            <Send className="w-5 h-5 text-[var(--portfolio-primary)] shrink-0" />
             <div className="font-mono text-xs">
-              <div className="text-[#edf1f4] font-bold">@shoyim_portfolio</div>
-              <div className="text-[11px] text-[#9caeb8]">Har bir yangi loyiha kanalda eʼlon qilib boriladi</div>
+              <div className="text-[var(--portfolio-text-primary)] font-bold">@shoyim_portfolio</div>
+              <div className="text-[11px] text-[var(--portfolio-text-secondary)]">Har bir yangi loyiha kanalda eʼlon qilib boriladi</div>
             </div>
             <a
               href={PORTFOLIO_DATA.profile.telegramChannel}
               target="_blank"
               rel="noopener noreferrer"
-              className="ml-auto text-xs font-mono text-[#93d7e2] hover:underline shrink-0"
+              className="ml-auto text-xs font-mono text-[var(--portfolio-primary)] hover:underline shrink-0"
             >
               Kanalga o‘tish ↗
             </a>
-          </KepCard>
+          </PortfolioCard>
         </div>
 
         {/* Filter Tabs */}
-        <div className="flex flex-wrap items-center gap-2 mb-10 border-b border-white/[0.08] pb-4">
+        <div className="flex flex-wrap items-center gap-2 mb-10 border-b border-[var(--portfolio-border)] pb-4">
           {categories.map((cat) => (
             <button
               key={cat.id}
               onClick={() => setActiveCategory(cat.id)}
               className={`px-4 py-2 font-mono text-xs tracking-wider border rounded-none cursor-pointer transition-all duration-150 ${
                 activeCategory === cat.id
-                  ? 'bg-[#93d7e2] text-[#0a0d14] font-bold border-[#93d7e2]'
-                  : 'bg-[#0e121a] text-[#9caeb8] border-white/10 hover:border-white/25 hover:text-[#edf1f4]'
+                  ? 'bg-[var(--portfolio-primary)] text-[#0a0d14] dark:text-[#0a0d14] font-bold border-[var(--portfolio-primary)]'
+                  : 'bg-[var(--portfolio-bg-paper)] text-[var(--portfolio-text-secondary)] border-[var(--portfolio-border)] hover:border-[var(--portfolio-border-bright)] hover:text-[var(--portfolio-text-primary)]'
               }`}
             >
               [ {cat.label} ]
@@ -80,7 +80,7 @@ export const Projects: React.FC = () => {
         {/* Projects Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredProjects.map((project) => (
-            <KepCard
+            <PortfolioCard
               key={project.id}
               hasCorners
               accent={project.featured ? 'cyan' : 'default'}
@@ -93,7 +93,7 @@ export const Projects: React.FC = () => {
                     {project.categoryLabel}
                   </Badge>
                   {project.stars && (
-                    <span className="flex items-center gap-1 font-mono text-[11px] text-[#d8c697]">
+                    <span className="flex items-center gap-1 font-mono text-[11px] text-[var(--portfolio-accent-gold)]">
                       <Star className="w-3 h-3 fill-current" />
                       {project.stars}
                     </span>
@@ -101,12 +101,12 @@ export const Projects: React.FC = () => {
                 </div>
 
                 {/* Title */}
-                <h3 className="text-lg font-bold font-mono text-[#edf1f4] mb-2 leading-snug group-hover:text-[#93d7e2]">
+                <h3 className="text-lg font-bold font-mono text-[var(--portfolio-text-primary)] mb-2 leading-snug">
                   {project.title}
                 </h3>
 
                 {/* Description */}
-                <p className="text-xs text-[#9caeb8] font-mono leading-relaxed mb-4">
+                <p className="text-xs text-[var(--portfolio-text-secondary)] font-mono leading-relaxed mb-4">
                   {project.description}
                 </p>
 
@@ -115,7 +115,7 @@ export const Projects: React.FC = () => {
                   {project.technologies.map((tech, tIdx) => (
                     <span
                       key={tIdx}
-                      className="px-2 py-0.5 bg-[#131821] border border-white/[0.08] font-mono text-[10px] text-[#93d7e2]"
+                      className="px-2 py-0.5 bg-[var(--portfolio-bg-elevation-1)] border border-[var(--portfolio-border)] font-mono text-[10px] text-[var(--portfolio-primary)]"
                     >
                       {tech}
                     </span>
@@ -124,10 +124,10 @@ export const Projects: React.FC = () => {
               </div>
 
               {/* Action Links */}
-              <div className="pt-4 border-t border-white/[0.06] flex items-center justify-between gap-2 mt-auto">
+              <div className="pt-4 border-t border-[var(--portfolio-border)] flex items-center justify-between gap-2 mt-auto">
                 <button
                   onClick={() => setSelectedProject(project)}
-                  className="text-xs font-mono text-[#93d7e2] hover:underline cursor-pointer"
+                  className="text-xs font-mono text-[var(--portfolio-primary)] hover:underline cursor-pointer"
                 >
                   [ To‘liq tavsif // + ]
                 </button>
@@ -138,7 +138,7 @@ export const Projects: React.FC = () => {
                       href={project.githubUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="p-1.5 border border-white/10 bg-[#131821] text-[#9caeb8] hover:text-[#edf1f4] hover:border-[#93d7e2]/40"
+                      className="p-1.5 border border-[var(--portfolio-border)] bg-[var(--portfolio-bg-elevation-1)] text-[var(--portfolio-text-secondary)] hover:text-[var(--portfolio-text-primary)] hover:border-[var(--portfolio-border-bright)]"
                       title="GitHub Repository"
                     >
                       <GithubIcon className="w-3.5 h-3.5" />
@@ -149,7 +149,7 @@ export const Projects: React.FC = () => {
                       href={project.liveUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="p-1.5 border border-white/10 bg-[#131821] text-[#9caeb8] hover:text-[#93d7e2] hover:border-[#93d7e2]"
+                      className="p-1.5 border border-[var(--portfolio-border)] bg-[var(--portfolio-bg-elevation-1)] text-[var(--portfolio-text-secondary)] hover:text-[var(--portfolio-primary)] hover:border-[var(--portfolio-primary)]"
                       title="Live Preview"
                     >
                       <ArrowUpRight className="w-3.5 h-3.5" />
@@ -160,7 +160,7 @@ export const Projects: React.FC = () => {
                       href={project.telegramPostUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="p-1.5 border border-white/10 bg-[#131821] text-[#9caeb8] hover:text-[#93d7e2] hover:border-[#93d7e2]"
+                      className="p-1.5 border border-[var(--portfolio-border)] bg-[var(--portfolio-bg-elevation-1)] text-[var(--portfolio-text-secondary)] hover:text-[var(--portfolio-primary)] hover:border-[var(--portfolio-primary)]"
                       title="Telegram Post"
                     >
                       <Send className="w-3.5 h-3.5" />
@@ -168,20 +168,20 @@ export const Projects: React.FC = () => {
                   )}
                 </div>
               </div>
-            </KepCard>
+            </PortfolioCard>
           ))}
         </div>
 
         {/* Bottom GitHub Profile Callout */}
-        <div className="mt-14 p-6 border border-white/10 bg-[#0e121a] flex flex-col sm:flex-row items-center justify-between gap-4 font-mono">
+        <div className="mt-14 p-6 border border-[var(--portfolio-border)] bg-[var(--portfolio-bg-paper)] flex flex-col sm:flex-row items-center justify-between gap-4 font-mono">
           <div className="flex items-center gap-3">
-            <FolderGit2 className="w-6 h-6 text-[#93d7e2] shrink-0" />
+            <FolderGit2 className="w-6 h-6 text-[var(--portfolio-primary)] shrink-0" />
             <div>
-              <div className="text-sm font-bold text-[#edf1f4]">Barcha ochiq kodli loyihalar GitHub da</div>
-              <div className="text-xs text-[#9caeb8]">github.com/shoyim repozitoriysida yangi scriptlar va paketlar muntazam yuklab boriladi</div>
+              <div className="text-sm font-bold text-[var(--portfolio-text-primary)]">Barcha ochiq kodli loyihalar GitHub da</div>
+              <div className="text-xs text-[var(--portfolio-text-secondary)]">github.com/shoyim repozitoriysida yangi scriptlar va paketlar muntazam yuklab boriladi</div>
             </div>
           </div>
-          <KepButton
+          <PortfolioButton
             asAnchor
             href={PORTFOLIO_DATA.profile.github}
             target="_blank"
@@ -190,36 +190,36 @@ export const Projects: React.FC = () => {
             icon={<ArrowUpRight className="w-3.5 h-3.5" />}
           >
             GitHub ga o‘tish
-          </KepButton>
+          </PortfolioButton>
         </div>
       </div>
 
       {/* Project Details Modal */}
       {selectedProject && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm">
-          <KepCard hasCorners accent="cyan" className="max-w-2xl w-full p-6 bg-[#0e121a] border-white/20">
-            <div className="flex items-center justify-between gap-4 mb-4 pb-3 border-b border-white/10">
-              <div className="font-mono text-xs text-[#93d7e2]">
-                // DETAILED_LOGS :: {selectedProject.id}
+          <PortfolioCard hasCorners accent="cyan" className="max-w-2xl w-full p-6 bg-[var(--portfolio-bg-paper)] border-[var(--portfolio-border)]">
+            <div className="flex items-center justify-between gap-4 mb-4 pb-3 border-b border-[var(--portfolio-border)]">
+              <div className="font-mono text-xs text-[var(--portfolio-primary)] font-bold">
+                // LOYIHA :: {selectedProject.title}
               </div>
               <button
                 onClick={() => setSelectedProject(null)}
-                className="font-mono text-xs text-[#9caeb8] hover:text-[#edf1f4] px-2 py-1 border border-white/10"
+                className="font-mono text-xs text-[var(--portfolio-text-secondary)] hover:text-[var(--portfolio-text-primary)] px-2 py-1 border border-[var(--portfolio-border)] cursor-pointer"
               >
                 [YOPISH ✕]
               </button>
             </div>
 
-            <h3 className="text-xl font-bold font-mono text-[#edf1f4] mb-2">
+            <h3 className="text-xl font-bold font-mono text-[var(--portfolio-text-primary)] mb-2">
               {selectedProject.title}
             </h3>
 
-            <p className="font-mono text-sm text-[#9caeb8] leading-relaxed mb-4">
+            <p className="font-mono text-sm text-[var(--portfolio-text-secondary)] leading-relaxed mb-4">
               {selectedProject.fullDetails}
             </p>
 
             <div className="mb-6">
-              <div className="font-mono text-xs text-[#d8c697] uppercase mb-2">
+              <div className="font-mono text-xs text-[var(--portfolio-accent-gold)] uppercase mb-2">
                 Texnologik Stek:
               </div>
               <div className="flex flex-wrap gap-2">
@@ -231,9 +231,9 @@ export const Projects: React.FC = () => {
               </div>
             </div>
 
-            <div className="flex items-center justify-end gap-3 pt-4 border-t border-white/10">
+            <div className="flex items-center justify-end gap-3 pt-4 border-t border-[var(--portfolio-border)]">
               {selectedProject.githubUrl && (
-                <KepButton
+                <PortfolioButton
                   asAnchor
                   href={selectedProject.githubUrl}
                   target="_blank"
@@ -242,10 +242,10 @@ export const Projects: React.FC = () => {
                   icon={<GithubIcon className="w-3.5 h-3.5" />}
                 >
                   GitHub Repo
-                </KepButton>
+                </PortfolioButton>
               )}
               {selectedProject.telegramPostUrl && (
-                <KepButton
+                <PortfolioButton
                   asAnchor
                   href={selectedProject.telegramPostUrl}
                   target="_blank"
@@ -254,10 +254,10 @@ export const Projects: React.FC = () => {
                   icon={<Send className="w-3.5 h-3.5" />}
                 >
                   Telegram Post
-                </KepButton>
+                </PortfolioButton>
               )}
             </div>
-          </KepCard>
+          </PortfolioCard>
         </div>
       )}
     </section>

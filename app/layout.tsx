@@ -25,7 +25,6 @@ export const metadata: Metadata = {
     'Laravel Uzbekistan',
     'Full Stack Developer',
     'Next.js Portfolio',
-    'KEP.uz',
     'Competitive Programming',
     'Python Django',
   ],
@@ -62,9 +61,27 @@ export default function RootLayout({
       lang="uz"
       className={`${plusJakartaSans.variable} ${jetbrainsMono.variable} dark`}
       data-theme="dark"
+      suppressHydrationWarning
     >
-      <body className="min-h-screen bg-[#0a0d14] text-[#edf1f4] flex flex-col font-sans antialiased selection:bg-[#93d7e2]/20 selection:text-[#ffffff]">
-        <div className="kep-top-line fixed top-0 left-0 right-0 z-50 pointer-events-none" />
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              try {
+                const t = localStorage.getItem('portfolio-theme') || 'dark';
+                document.documentElement.setAttribute('data-theme', t);
+                if (t === 'dark') {
+                  document.documentElement.classList.add('dark');
+                } else {
+                  document.documentElement.classList.remove('dark');
+                }
+              } catch (e) {}
+            `,
+          }}
+        />
+      </head>
+      <body className="min-h-screen bg-[var(--portfolio-bg-default)] text-[var(--portfolio-text-primary)] flex flex-col font-sans antialiased selection:bg-[var(--portfolio-primary-dim)]">
+        <div className="portfolio-top-line fixed top-0 left-0 right-0 z-50 pointer-events-none" />
         {children}
       </body>
     </html>
