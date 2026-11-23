@@ -161,6 +161,17 @@ export const Hero: React.FC = () => {
                   </a>
                 </div>
                 <div className="flex items-center justify-between pb-1.5 border-b border-[var(--portfolio-border)]">
+                  <span className="text-[var(--portfolio-text-muted)]">LINKEDIN:</span>
+                  <a
+                    href={PORTFOLIO_DATA.profile.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[var(--portfolio-text-primary)] hover:underline"
+                  >
+                    linkedin.com/in/shoyim-obloqulov
+                  </a>
+                </div>
+                <div className="flex items-center justify-between pb-1.5 border-b border-[var(--portfolio-border)]">
                   <span className="text-[var(--portfolio-text-muted)]">TELEGRAM_FEED:</span>
                   <a
                     href="https://t.me/shoyim_portfolio"

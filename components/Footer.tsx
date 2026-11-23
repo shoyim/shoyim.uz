@@ -3,7 +3,7 @@
 import React from 'react';
 import { PORTFOLIO_DATA } from '@/data/portfolio';
 import { Send, Terminal } from 'lucide-react';
-import { GithubIcon } from './ui/Icons';
+import { GithubIcon, LinkedinIcon } from './ui/Icons';
 
 export const Footer: React.FC = () => {
   return (
@@ -35,6 +35,15 @@ export const Footer: React.FC = () => {
               title="GitHub"
             >
               <GithubIcon className="w-4 h-4" />
+            </a>
+            <a
+              href={PORTFOLIO_DATA.profile.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-2 border border-[var(--portfolio-border)] bg-[var(--portfolio-bg-paper)] hover:border-[var(--portfolio-primary)] hover:text-[var(--portfolio-primary)] transition-colors"
+              title="LinkedIn Profile"
+            >
+              <LinkedinIcon className="w-4 h-4" />
             </a>
             <a
               href={PORTFOLIO_DATA.profile.telegramChannel}

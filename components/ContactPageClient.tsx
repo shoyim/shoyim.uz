@@ -9,6 +9,7 @@ import { PortfolioButton } from '@/components/ui/KepButton';
 import { Badge } from '@/components/ui/Badge';
 import { PORTFOLIO_DATA } from '@/data/portfolio';
 import { ArrowUpRight, Check, Copy, Mail, MapPin, Send } from 'lucide-react';
+import { LinkedinIcon } from '@/components/ui/Icons';
 
 export function ContactPageClient() {
   const [copied, setCopied] = useState(false);
@@ -100,6 +101,24 @@ export function ContactPageClient() {
                           @shoyim_portfolio
                         </div>
                         <div className="text-[11px] text-[var(--portfolio-text-secondary)]">Telegram Portfolio Kanalim</div>
+                      </div>
+                    </div>
+                    <ArrowUpRight className="w-4 h-4 text-[var(--portfolio-text-secondary)] group-hover:text-[var(--portfolio-primary)]" />
+                  </a>
+
+                  <a
+                    href={PORTFOLIO_DATA.profile.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="p-4 border border-[var(--portfolio-border)] bg-[var(--portfolio-bg-elevation-1)] hover:border-[var(--portfolio-border-bright)] flex items-center justify-between gap-3 font-mono transition-all group cursor-pointer"
+                  >
+                    <div className="flex items-center gap-3">
+                      <LinkedinIcon className="w-5 h-5 text-[var(--portfolio-primary)]" />
+                      <div>
+                        <div className="text-sm text-[var(--portfolio-text-primary)] font-bold group-hover:text-[var(--portfolio-primary)]">
+                          LinkedIn: Shoyim Obloqulov
+                        </div>
+                        <div className="text-[11px] text-[var(--portfolio-text-secondary)]">Kasbiy profil va xalqaro aloqa</div>
                       </div>
                     </div>
                     <ArrowUpRight className="w-4 h-4 text-[var(--portfolio-text-secondary)] group-hover:text-[var(--portfolio-primary)]" />

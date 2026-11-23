@@ -41,6 +41,7 @@ export interface PortfolioData {
     status: string;
     domain: string;
     github: string;
+    linkedin: string;
     telegramChannel: string;
     telegramUser: string;
     email: string;
@@ -62,6 +63,7 @@ export const PORTFOLIO_DATA: PortfolioData = {
     status: 'SYSTEM_READY // AVAILABLE FOR SELECT CONTRACTS',
     domain: 'https://shoyim.uz',
     github: 'https://github.com/shoyim',
+    linkedin: 'https://www.linkedin.com/in/shoyim-obloqulov-9409b2296/',
     telegramChannel: 'https://t.me/shoyim_portfolio',
     telegramUser: 'https://t.me/shoyim',
     email: 'contact@shoyim.uz',

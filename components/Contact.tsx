@@ -6,6 +6,7 @@ import { PortfolioCard } from './ui/KepCard';
 import { PortfolioButton } from './ui/KepButton';
 import { Badge } from './ui/Badge';
 import { Mail, Send, MapPin, Check, Copy, ArrowUpRight } from 'lucide-react';
+import { LinkedinIcon } from './ui/Icons';
 
 export const Contact: React.FC = () => {
   const [copied, setCopied] = useState(false);
@@ -85,6 +86,26 @@ export const Contact: React.FC = () => {
                     </div>
                   </div>
                   <ArrowUpRight className="w-4 h-4 text-[var(--portfolio-text-secondary)] group-hover:text-[var(--portfolio-accent-gold)]" />
+                </a>
+
+                <a
+                  href={PORTFOLIO_DATA.profile.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-4 border border-[var(--portfolio-border)] bg-[var(--portfolio-bg-elevation-1)] hover:border-[var(--portfolio-border-bright)] flex items-center justify-between gap-3 font-mono transition-all group"
+                >
+                  <div className="flex items-center gap-3">
+                    <LinkedinIcon className="w-5 h-5 text-[var(--portfolio-primary)]" />
+                    <div>
+                      <div className="text-xs text-[var(--portfolio-text-primary)] font-bold group-hover:text-[var(--portfolio-primary)]">
+                        LinkedIn: Shoyim Obloqulov
+                      </div>
+                      <div className="text-[11px] text-[var(--portfolio-text-secondary)]">
+                        Xalqaro professional tarmoq
+                      </div>
+                    </div>
+                  </div>
+                  <ArrowUpRight className="w-4 h-4 text-[var(--portfolio-text-secondary)] group-hover:text-[var(--portfolio-primary)]" />
                 </a>
               </div>
             </PortfolioCard>

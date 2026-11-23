@@ -6,7 +6,7 @@ import { usePathname } from 'next/navigation';
 import { PORTFOLIO_DATA } from '@/data/portfolio';
 import { PortfolioButton } from './ui/KepButton';
 import { Terminal, Send, Menu, X, ArrowUpRight, Sun, Moon } from 'lucide-react';
-import { GithubIcon } from './ui/Icons';
+import { GithubIcon, LinkedinIcon } from './ui/Icons';
 
 const subscribeTheme = (callback: () => void) => {
   window.addEventListener('storage', callback);
@@ -102,6 +102,16 @@ export const Navbar: React.FC = () => {
             title="GitHub Profile"
           >
             <GithubIcon className="w-4 h-4" />
+          </a>
+
+          <a
+            href={PORTFOLIO_DATA.profile.linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="p-2 border border-[var(--portfolio-border)] bg-[var(--portfolio-bg-paper)] text-[var(--portfolio-text-secondary)] hover:text-[var(--portfolio-text-primary)] hover:border-[var(--portfolio-border-bright)] transition-colors"
+            title="LinkedIn Profile"
+          >
+            <LinkedinIcon className="w-4 h-4" />
           </a>
 
           <PortfolioButton

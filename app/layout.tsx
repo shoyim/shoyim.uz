@@ -112,6 +112,7 @@ const personJsonLd = {
   },
   sameAs: [
     'https://github.com/shoyim',
+    'https://www.linkedin.com/in/shoyim-obloqulov-9409b2296/',
     'https://t.me/shoyim_portfolio',
     'https://t.me/shoyim',
   ],
