@@ -28,9 +28,35 @@ export async function generateMetadata({ params }: ProjectPageProps): Promise<Me
   const project = PORTFOLIO_DATA.projects.find((p) => p.id === resolvedParams.id);
   if (!project) return { title: 'Loyiha topilmadi // shoyim.uz' };
 
+  const url = `https://shoyim.uz/projects/${project.id}`;
+  const ogImage = project.image ? `https://shoyim.uz${project.image}` : 'https://shoyim.uz/opengraph-image';
+
   return {
     title: `${project.title} // Case Study // shoyim.uz`,
     description: project.description,
+    alternates: {
+      canonical: url,
+    },
+    openGraph: {
+      title: `${project.title} // Case Study`,
+      description: project.description,
+      url,
+      type: 'website',
+      images: [
+        {
+          url: ogImage,
+          width: 1200,
+          height: 630,
+          alt: project.title,
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: project.title,
+      description: project.description,
+      images: [ogImage],
+    },
   };
 }
 
@@ -42,12 +68,32 @@ export default async function SingleProjectPage({ params }: ProjectPageProps) {
     notFound();
   }
 
+  const projectJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'SoftwareApplication',
+    name: project.title,
+    description: project.fullDetails,
+    applicationCategory: 'DeveloperApplication',
+    operatingSystem: 'Cross-platform',
+    author: {
+      '@type': 'Person',
+      name: 'Shoyim Obloqulov',
+      url: 'https://shoyim.uz',
+    },
+    url: `https://shoyim.uz/projects/${project.id}`,
+    image: project.image ? `https://shoyim.uz${project.image}` : undefined,
+  };
+
   const relatedProjects = PORTFOLIO_DATA.projects
     .filter((p) => p.id !== project.id && p.category === project.category)
     .slice(0, 2);
 
   return (
     <div className="min-h-screen bg-[var(--portfolio-bg-default)] flex flex-col">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(projectJsonLd) }}
+      />
       <Navbar />
       <main className="flex-1 py-12 portfolio-bg-dots">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">

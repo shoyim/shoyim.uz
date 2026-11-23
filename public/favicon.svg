@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <rect width="64" height="64" fill="#000000" rx="8"/>
+  <rect x="2" y="2" width="60" height="60" fill="none" stroke="#ffffff" stroke-width="1.5" stroke-opacity="0.4" rx="6"/>
+  <!-- HUD Corner Ticks -->
+  <path d="M6 16 V6 H16" fill="none" stroke="#ffffff" stroke-width="2.5" stroke-linecap="square"/>
+  <path d="M48 6 H58 V16" fill="none" stroke="#ffffff" stroke-width="2.5" stroke-linecap="square"/>
+  <path d="M6 48 V58 H16" fill="none" stroke="#ffffff" stroke-width="2.5" stroke-linecap="square"/>
+  <path d="M48 58 H58 V48" fill="none" stroke="#ffffff" stroke-width="2.5" stroke-linecap="square"/>
+  <!-- Monogram SH -->
+  <text x="32" y="42" font-family="'JetBrains Mono', 'Courier New', monospace" font-size="28" font-weight="900" fill="#ffffff" text-anchor="middle" letter-spacing="-1.5">SH</text>
+  <!-- Mini status dot -->
+  <circle cx="50" cy="14" r="2.5" fill="#ffffff"/>
+</svg>

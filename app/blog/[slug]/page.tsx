@@ -26,9 +26,28 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
   const post = BLOG_POSTS.find((p) => p.slug === resolvedParams.slug);
   if (!post) return { title: 'Maqola topilmadi // shoyim.uz' };
 
+  const url = `https://shoyim.uz/blog/${post.slug}`;
+
   return {
     title: `${post.title} // Blog // shoyim.uz`,
     description: post.summary,
+    alternates: {
+      canonical: url,
+    },
+    openGraph: {
+      title: post.title,
+      description: post.summary,
+      url,
+      type: 'article',
+      publishedTime: post.publishedAt,
+      authors: ['Shoyim Obloqulov'],
+      tags: post.tags,
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: post.title,
+      description: post.summary,
+    },
   };
 }
 
@@ -40,10 +59,37 @@ export default async function SingleBlogPostPage({ params }: BlogPostPageProps) 
     notFound();
   }
 
+  const articleJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'TechArticle',
+    headline: post.title,
+    description: post.summary,
+    author: {
+      '@type': 'Person',
+      name: 'Shoyim Obloqulov',
+      url: 'https://shoyim.uz',
+    },
+    datePublished: post.publishedAt,
+    publisher: {
+      '@type': 'Person',
+      name: 'Shoyim Obloqulov',
+      url: 'https://shoyim.uz',
+    },
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': `https://shoyim.uz/blog/${post.slug}`,
+    },
+    keywords: post.tags.join(', '),
+  };
+
   const relatedPosts = BLOG_POSTS.filter((p) => p.slug !== post.slug).slice(0, 2);
 
   return (
     <div className="min-h-screen bg-[var(--portfolio-bg-default)] flex flex-col">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
+      />
       <Navbar />
       <main className="flex-1 py-12 portfolio-bg-dots">
         <article className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">

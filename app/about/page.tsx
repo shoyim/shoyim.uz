@@ -12,7 +12,22 @@ import { Briefcase, Calendar, CheckCircle2, GraduationCap, MapPin, Terminal, Awa
 
 export const metadata: Metadata = {
   title: 'Tajriba & Muhandislik // Shoyim Obloqulov // shoyim.uz',
-  description: 'Shoyim Obloqulovning to‘liq kasbiy yo‘li, SamDU IT Markazidagi faoliyati, tizimlar arxitekturasi va algoritmik yutuqlari.',
+  description:
+    'Shoyim Obloqulovning to‘liq kasbiy yo‘li, IT tizimlari arxitekturasi, ilmiy loyihalari va algoritmik yutuqlari.',
+  alternates: {
+    canonical: 'https://shoyim.uz/about',
+  },
+  openGraph: {
+    title: 'Tajriba & Muhandislik // Shoyim Obloqulov',
+    description: 'Senior Full-Stack dasturchi va tizimlar arxitektori kasbiy tarixi.',
+    url: 'https://shoyim.uz/about',
+    type: 'profile',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Tajriba & Muhandislik // Shoyim Obloqulov',
+    description: 'Kasbiy tajriba, ta\'lim va muhandislik yondashuvi.',
+  },
 };
 
 export default function AboutPage() {
